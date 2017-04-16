@@ -3,7 +3,7 @@ from bs4 import BeautifulSoup
 import json
 import urllib2
 
-fight_id = []
+record = {}
 event_id = 0
 
 links = []
@@ -25,14 +25,24 @@ def spider(max_pages):
 		start_year+=1;
 
 def get_json():
-	for h in fight_id:
-		print h+"    "+str(event_id)
-		url = "http://liveapi.fightmetric.com/V2/"+str(event_id)+"/"+str(h)+"/Stats.json"
-		# print url
-		data = json.load(urllib2.urlopen("http://liveapi.fightmetric.com/V2/"+str(event_id)+"/"+str(h)+"/Stats.json"))
-		# print h
-		with open('json/'+str(event_id)+"_"+str(h)+'.json', 'w') as outfile:
-	    		json.dump(data, outfile)	
+	# print str(event_id)
+	# http://m.ufc.com/fm/api/event/detail/816.json
+	url = "http://m.ufc.com/fm/api/event/detail/"+str(event_id)+".json"
+	# print url
+	data = json.load(urllib2.urlopen(url))
+	# print data
+	json_for_each_fight = data["FightCard"]
+	for fight in json_for_each_fight:
+		fight_id = fight["statid"]
+		json_for_each_fighter = fight["Fighters"]
+		for fighter in json_for_each_fighter:
+			if fighter["Outcome"]["OutcomeID"] == "1"  :
+				winning_fighter_id = fighter["statid"]
+				record[str(event_id)+"_"+str(fight_id)] = winning_fighter_id
+				break;
+	# print h
+	# with open('json/'+str(event_id)+"_"+str(h)+'.json', 'w') as outfile:
+ #    		json.dump(data, outfile)	
 
 
 def get_ids(link):
@@ -44,13 +54,12 @@ def get_ids(link):
 		global event_id
 		event_id = edit
 		print event_id
-		# get_json()
+		get_json()
 
 
 spider(2017)
 for link in links:
-	fight_id=[]
 	get_ids(link)
 
-
+print record
 

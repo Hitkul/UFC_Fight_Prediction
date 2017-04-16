@@ -29,7 +29,7 @@ def get_json():
 		print h+"    "+str(event_id)
 		url = "http://liveapi.fightmetric.com/V2/"+str(event_id)+"/"+str(h)+"/Stats.json"
 		# print url
-		data = json.load(urllib2.urlopen("http://liveapi.fightmetric.com/V2/"+str(event_id)+"/"+str(h)+"/Stats.json"))
+		data = json.load(urllib2.urlopen(url))
 		# print h
 		with open('json/'+str(event_id)+"_"+str(h)+'.json', 'w') as outfile:
 	    		json.dump(data, outfile)	
