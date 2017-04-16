@@ -9,7 +9,7 @@ event_id = 0
 links = []
 
 def spider(max_pages):
-	start_year =2017 
+	start_year =2014 
 	while start_year <= max_pages:
 		url = 'http://www.ufc.com/event/Past_Events?year='+str(start_year)
 		source_code = requests.get(url, allow_redirects=False)
@@ -60,6 +60,6 @@ def get_ids(link):
 spider(2017)
 for link in links:
 	get_ids(link)
-
-print record
-
+# print record
+with open('winners.json', 'w') as outfile:
+     		json.dump(record, outfile, indent=4)
