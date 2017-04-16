@@ -6,12 +6,16 @@ from os.path import isfile, join
 
 fighters_profiles = {}
 files_with_different_template = []
+fighters_profiles_template = {}
+
+
+def get_fighter_profile_template():
+    with open('fighter_profile.json') as data_file:
+        return json.load(data_file)
 
 def get_all_results():
     with open('winners.json') as data_file:    
         return json.load(data_file)
-
-
 
 def get_all_json():
     return [f for f in listdir("json/") if isfile(join("json/", f))]
@@ -33,8 +37,12 @@ def add_time_stamps(time1,time2):
     time2 = datetime.datetime.strptime(time2, '%M:%S')
     return str(datetime.timedelta(minutes = time1.minute,seconds = time1.second)+datetime.timedelta(minutes = time2.minute,seconds = time2.second))#.strftime('%M:%S')
 
+def update_profile(data):
+    pass
+
 def master_loop(name_of_file):
-    print name_of_file
+    # print name_of_file
+    global fighter_profile
     with open('json/'+name_of_file) as data_file:    
         data = json.load(data_file)
         fighters_names = get_fighters_name_from_fight_json(data) #(Blue,Red)
@@ -42,14 +50,23 @@ def master_loop(name_of_file):
         if fighters_id == "error":
             files_with_different_template.append(name_of_file)
             return 0
-        print fighters_names
-        print fighters_id 
+        #check if fighter profile available before
+        for id in fighters_id:
+            if id not in fighters_profiles:
+                fighters_profiles[id] = fighters_profiles_template
+            with open('profile_json/'+name_of_file[:-5]+'_'+id+'.json', 'w') as outfile:
+                json.dump(fighters_profiles[id], outfile, indent=4)
+            update_profile(data)
+                
+
 
 def main():
     all_fights_json_names = get_all_json()
     all_fights_json_names.sort()
-    # print all_fights_json_names
     result_of_fights = get_all_results()
+    global fighters_profiles_template
+    fighters_profiles_template = get_fighter_profile_template()
+    # print fighters_profiles_template
     for file_name in all_fights_json_names:
         master_loop(file_name)
 
