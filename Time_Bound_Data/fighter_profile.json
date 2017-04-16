@@ -152,6 +152,10 @@
                 "Significant Strikes": {
                     "Attempts": "", 
                     "Landed": ""
+                },
+                "Legs Total Strikes": {
+                    "Landed": "",
+                    "Attempts": ""
                 }, 
                 "Total Strikes": {
                     "Attempts": "", 
@@ -199,6 +203,10 @@
                     "Attempts": "", 
                     "Landed": ""
                 }, 
+                "Legs Total Strikes": {
+                    "Landed": "",
+                    "Attempts": ""
+                },
                 "Clinch Body Strikes": {
                     "Attempts": "", 
                     "Landed": ""
@@ -372,6 +380,10 @@
                     "Attempts": "", 
                     "Landed": ""
                 }, 
+                "Legs Total Strikes": {
+                    "Landed": "",
+                    "Attempts": ""
+                },
                 "Clinch Head Strikes": {
                     "Attempts": "", 
                     "Landed": ""
@@ -541,6 +553,10 @@
                     "Attempts": "", 
                     "Landed": ""
                 }, 
+                "Legs Total Strikes": {
+                    "Landed": "",
+                    "Attempts": ""
+                },
                 "Clinch Head Strikes": {
                     "Attempts": "", 
                     "Landed": ""
@@ -714,6 +730,10 @@
                     "Attempts": "", 
                     "Landed": ""
                 }, 
+                "Legs Total Strikes": {
+                    "Landed": "",
+                    "Attempts": ""
+                },
                 "Clinch Leg Strikes": {
                     "Attempts": "", 
                     "Landed": ""
