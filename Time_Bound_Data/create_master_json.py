@@ -1,5 +1,6 @@
 import json
 import datetime
+import time
 from os import listdir
 from os.path import isfile, join
 
@@ -33,9 +34,29 @@ def get_fighters_id_from_fight_json(data):
         return "error"
 
 def add_time_stamps(time1,time2):
-    time1 =  datetime.datetime.strptime(time1, '%M:%S')
-    time2 = datetime.datetime.strptime(time2, '%M:%S')
-    return str(datetime.timedelta(minutes = time1.minute,seconds = time1.second)+datetime.timedelta(minutes = time2.minute,seconds = time2.second))#.strftime('%M:%S')
+    if time1 == "":
+        time1 = "00:00:00"
+    if time2 == "":
+        time2="00:00:00"
+    if time1.count(':') == 1:
+        time1 = "00:"+time1
+    if time2.count(':') == 1:
+        time2 = "00:"+time2
+    if time1.count(':') != 0:
+        time1 =  datetime.datetime.strptime(time1, '%H:%M:%S')
+        time1 = str(datetime.timedelta(hours=time1.hour,minutes=time1.minute,seconds=time1.second).total_seconds())
+    if time2.count(':') != 0:
+        time2 =  datetime.datetime.strptime(time2, '%H:%M:%S')
+        time2 = str(datetime.timedelta(hours=time2.hour,minutes=time2.minute,seconds=time2.second).total_seconds())
+    print "----------------------------------------"
+    print time1
+    print time2
+    print str(float(time1)+float(time2))
+    return str(float(time1)+float(time2))
+    # time2 = datetime.datetime.strptime(time2, '%H:%M:%S').time()
+    # foo = datetime.timedelta(hours = time1.hour,minutes = time1.minute,seconds = time1.second)+datetime.timedelta(hours = time2.hour,minutes = time2.minute,seconds = time2.second)
+    # print foo
+    # return str(foo)
 
 def get_formated_int_value(value):
     if value == "":
@@ -61,6 +82,11 @@ def update_profile(data,id,i):
                             value_in_fighter_profile = get_formated_int_value(value_in_fighter_profile)
                             value_in_fighter_profile+=value_in_fight_data
                             round_data_fighter[key][style][move][value] = str(value_in_fighter_profile)
+                elif style == "TIP":
+                    for move in round_data_fight[key]["Blue"][style].keys():
+                        value_in_fight_data = round_data_fight[key]["Blue"][style][move]
+                        value_in_fighter_profile = round_data_fighter[key][style][move]
+                        round_data_fighter[key][style][move] = add_time_stamps(value_in_fight_data,value_in_fighter_profile)
         else:
             for style in round_data_fight[key]["Red"].keys():
                 if style == "Grappling" or style == "Strikes":
@@ -72,9 +98,14 @@ def update_profile(data,id,i):
                             value_in_fighter_profile = get_formated_int_value(value_in_fighter_profile)
                             value_in_fighter_profile+=value_in_fight_data
                             round_data_fighter[key][style][move][value] = str(value_in_fighter_profile)
+                elif style == "TIP":
+                    for move in round_data_fight[key]["Red"][style].keys():
+                        value_in_fight_data = round_data_fight[key]["Red"][style][move]
+                        value_in_fighter_profile = round_data_fighter[key][style][move]
+                        round_data_fighter[key][style][move] = add_time_stamps(value_in_fight_data,value_in_fighter_profile)
 
 def master_loop(name_of_file):
-    # print name_of_file
+    print name_of_file
     global fighters_profiles
     with open('json/'+name_of_file) as data_file:    
         data = json.load(data_file)
