@@ -8,3 +8,7 @@ Get profile of UFC fighter from ufc.com using https://github.com/valish/ufc-api
 
 **Fighter_name**
 Scrape name of all ufc fighter from ufc.com
+
+
+**Time_Bound_Data**
+Takes all the event data collected and builds Time bound profile of every fighter
