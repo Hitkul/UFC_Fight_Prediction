@@ -105,7 +105,7 @@ def update_profile(data,id,i,winner_id):
                         round_data_fighter[key][style][move] = add_time_stamps(value_in_fight_data,value_in_fighter_profile)
 
 def master_loop(name_of_file,result_of_fights):
-    print name_of_file
+    # print name_of_file
     global fighters_profiles
     winner_id = result_of_fights[name_of_file[:-5]]
     # print winner_id
