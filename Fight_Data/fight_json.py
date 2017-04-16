@@ -8,7 +8,7 @@ event_id = 0
 
 links = []
 
-def trade_spider(max_pages):
+def spider(max_pages):
 	start_year =2014 
 	while start_year <= max_pages:
 		url = 'http://www.ufc.com/event/Past_Events?year='+str(start_year)
@@ -56,7 +56,7 @@ def get_ids(link):
 		get_json()
 
 
-trade_spider(2017)
+spider(2017)
 for link in links:
 	fight_id=[]
 	get_ids(link)
