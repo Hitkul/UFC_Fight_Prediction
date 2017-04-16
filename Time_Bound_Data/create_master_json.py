@@ -7,7 +7,6 @@ from os.path import isfile, join
 
 fighters_profiles = {}
 files_with_different_template = []
-fighters_profiles_template = {}
 
 
 def get_fighter_profile_template():
@@ -48,15 +47,7 @@ def add_time_stamps(time1,time2):
     if time2.count(':') != 0:
         time2 =  datetime.datetime.strptime(time2, '%H:%M:%S')
         time2 = str(datetime.timedelta(hours=time2.hour,minutes=time2.minute,seconds=time2.second).total_seconds())
-    print "----------------------------------------"
-    print time1
-    print time2
-    print str(float(time1)+float(time2))
     return str(float(time1)+float(time2))
-    # time2 = datetime.datetime.strptime(time2, '%H:%M:%S').time()
-    # foo = datetime.timedelta(hours = time1.hour,minutes = time1.minute,seconds = time1.second)+datetime.timedelta(hours = time2.hour,minutes = time2.minute,seconds = time2.second)
-    # print foo
-    # return str(foo)
 
 def get_formated_int_value(value):
     if value == "":
@@ -117,11 +108,12 @@ def master_loop(name_of_file):
         #check if fighter profile available before
         for i in xrange(0,2):
             if fighters_id[i] not in fighters_profiles:
-                fighters_profiles[fighters_id[i]] = fighters_profiles_template
+                foo = get_fighter_profile_template()
+                fighters_profiles[fighters_id[i]] = foo
                 fighters_profiles[fighters_id[i]]["Fighter"]["FighterID"] = fighters_id[i]
                 fighters_profiles[fighters_id[i]]["Fighter"]["Name"] = fighters_names[i]
             with open('profile_json/'+name_of_file[:-5]+'_'+fighters_id[i]+'.json', 'w') as outfile:
-                json.dump(fighters_profiles[fighters_id[i]], outfile, indent=4)
+                json.dump(fighters_profiles[fighters_id[i]], outfile,sort_keys=True, indent=4)
             update_profile(data,fighters_id[i],i)
                 
 
@@ -130,10 +122,9 @@ def main():
     all_fights_json_names = get_all_json()
     all_fights_json_names.sort()
     result_of_fights = get_all_results()
-    global fighters_profiles_template
-    fighters_profiles_template = get_fighter_profile_template()
+    # print fighters_profiles_template
     for file_name in all_fights_json_names:
-        master_loop(file_name)
+        master_loop(file_name )
 
     # for f in foo:
     #     print f 
@@ -141,15 +132,3 @@ def main():
 
 
 main()
-
-# with open('json/646_4580.json') as data_file:    
-#     data = json.load(data_file)
-#     fighters_names = get_fighters_name_from_fight_json(data) #(Blue,Red)
-#     fighters_id = get_fighters_id_from_fight_json(data)
-#     round_stats = data["FMLiveFeed"]["RoundStats"]
-#     keys_in_round_stats = round_stats.keys()
-#     print keys_in_round_stats
-    # print fighters_names 
-    # print add_time_stamps(data["FMLiveFeed"]["RoundStats"]["Round2"]["Blue"]["TIP"]["Guard Control Time"],data["FMLiveFeed"]["RoundStats"]["Round2"]["Blue"]["TIP"]["Guard Control Time"])
-    # print  int(data["FMLiveFeed"]["RoundStats"]["Round2"]["Blue"]["Strikes"]["Ground Significant Punches"]["Landed"][:-1])
-
