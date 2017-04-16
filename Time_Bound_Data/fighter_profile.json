@@ -3,6 +3,7 @@
         "FighterID": "", 
         "Name": ""
     }, 
+    "Record":[],
     "Fighter_stats": {
         "Round1": {
             "Grappling": {
