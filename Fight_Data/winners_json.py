@@ -40,6 +40,12 @@ def get_json():
 				winning_fighter_id = fighter["statid"]
 				record[str(event_id)+"_"+str(fight_id)] = winning_fighter_id
 				break;
+			elif fighter["Outcome"]["OutcomeID"] == "4":
+				record[str(event_id)+"_"+str(fight_id)] = "00000"# no contest
+				break;
+			elif fighter["Outcome"]["OutcomeID"] == "3":
+				record[str(event_id)+"_"+str(fight_id)] = "11111"#draw
+				break;
 	# print h
 	# with open('json/'+str(event_id)+"_"+str(h)+'.json', 'w') as outfile:
  #    		json.dump(data, outfile)	
