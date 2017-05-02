@@ -3,13 +3,17 @@ from bs4 import BeautifulSoup
 import json
 import urllib2
 
-record = {}
+methods = {}
 event_id = 0
+winners = {}
+master_dict = {}
 
+with open('winners.json') as data_file:    
+    winners = json.load(data_file)
 links = []
 
 def spider(max_pages):
-	start_year =2017
+	start_year =2014
 	while start_year <= max_pages:
 		url = 'http://www.ufc.com/event/Past_Events?year='+str(start_year)
 		source_code = requests.get(url, allow_redirects=False)
@@ -25,33 +29,13 @@ def spider(max_pages):
 		start_year+=1;
 
 def get_json():
-	# print str(event_id)
-	# http://m.ufc.com/fm/api/event/detail/816.json
-	# http://liveapi.fightmetric.com/V1/813/Fnt.json
 	url = "http://liveapi.fightmetric.com/V1/"+str(event_id)+"/Fnt.json"
-	# print url
 	data = json.load(urllib2.urlopen(url))
-	# print data
 	json_for_each_fight = data["FMLiveFeed"]["Fights"]
 	for fight in json_for_each_fight:
-		print fight["Method"]
-	# 	fight_id = fight["statid"]
-	# 	json_for_each_fighter = fight["Fighters"]
-	# 	for fighter in json_for_each_fighter:
-	# 		if fighter["Outcome"]["OutcomeID"] == "1"  :
-	# 			winning_fighter_id = fighter["statid"]
-	# 			record[str(event_id)+"_"+str(fight_id)] = winning_fighter_id
-	# 			break;
-	# 		elif fighter["Outcome"]["OutcomeID"] == "4":
-	# 			record[str(event_id)+"_"+str(fight_id)] = "00000"# no contest
-	# 			break;
-	# 		elif fighter["Outcome"]["OutcomeID"] == "3":
-	# 			record[str(event_id)+"_"+str(fight_id)] = "11111"#draw
-	# 			break;
-	# print h
-	# with open('json/'+str(event_id)+"_"+str(h)+'.json', 'w') as outfile:
- #    		json.dump(data, outfile)	
-
+		method = fight["Method"]
+		fight_id = fight["FightID"]
+		methods[str(event_id)+"_"+fight_id] = method
 
 def get_ids(link):
 		url = 'http://www.ufc.com'+link
@@ -68,6 +52,11 @@ def get_ids(link):
 spider(2017)
 for link in links:
 	get_ids(link)
-# print record
-with open('winners.json', 'w') as outfile:
-     		json.dump(record, outfile, indent=4)
+
+# print winners
+
+for fight in winners:
+	master_dict[fight] = [winners[fight],methods[fight]]
+print master_dict
+with open('result.json', 'w') as outfile:
+     		json.dump(master_dict, outfile, indent=4)
