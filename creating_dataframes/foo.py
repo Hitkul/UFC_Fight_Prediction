@@ -7,8 +7,25 @@ import collections
 listoffiles = os.listdir("./Data/Fights")
 errors = set()
 
+def count_prev(foo):
+  if foo==[]:
+    return 0
+  else:
+    return len(foo)
+
+def count_consecutive(foo):
+  if foo == []:
+    return 0
+  else:
+    count = 0
+    for x in foo[::1]:
+      if x == 1:
+        count +=1
+      else:
+        count = 0
+    return count
+
 def flatten(d, parent_key='', sep='_'):
-    print d
     items = []
     for k, v in d.items():
         new_key = parent_key + sep + k if parent_key else k
@@ -23,6 +40,8 @@ def create_dict(indict):
   return {
       'Event_ID': indict['FMLiveFeed']['EventID'],
       'Fight_ID': indict['FMLiveFeed']['FightID'],
+      'Max_round': indict['FMLiveFeed']['MaxRounds'],
+      'Last_round' : indict['FMLiveFeed']['CurrentRound'],
       'B_ID': indict['FMLiveFeed']['Fighters']['Blue']['FighterID'],
       'B_Name': indict['FMLiveFeed']['Fighters']['Blue']['Name'],
       'R_ID': indict['FMLiveFeed']['Fighters']['Red']['FighterID'],
@@ -76,28 +95,36 @@ def EditDict(indict):
   blue_fighter_dict['B_'] = val
   val = blue_fighter_dict['Record']
   blue_fighter_dict['BRecord'] = val
+  blue_fighter_dict['BPrev'] = count_prev(blue_fighter_dict['BRecord'])
+  blue_fighter_dict['BStreak'] = count_consecutive(blue_fighter_dict['BRecord'])
   blue_fighter_dict.pop('Fighter',None)
   blue_fighter_dict.pop('Fighter_stats',None)
   blue_fighter_dict.pop('Record',None)
+  blue_fighter_dict.pop('BRecord',None)
   indict.update(blue_fighter_dict)
   
   val = red_fighter_dict['Fighter_stats']
   red_fighter_dict['R_'] = val
   val = red_fighter_dict['Record']
   red_fighter_dict['RRecord'] = val
+  red_fighter_dict['RPrev'] = count_prev(red_fighter_dict['RRecord'])
+  blue_fighter_dict['RStreak'] = count_consecutive(red_fighter_dict['RRecord'])
   red_fighter_dict.pop('Record',None)
+  red_fighter_dict.pop('RRecord',None)
   red_fighter_dict.pop('Fighter',None)
   red_fighter_dict.pop('Fighter_stats',None)
   indict.update(red_fighter_dict)
   
-  if (winners[str(indict['Event_ID'])+'_'+str(indict['Fight_ID'])] == indict['B_ID']):
-    indict['winner'] = 'blue'
-  if (winners[str(indict['Event_ID'])+'_'+str(indict['Fight_ID'])] == indict['R_ID']):
-    indict['winner'] = 'red'
-  elif(winners[str(indict['Event_ID'])+'_'+str(indict['Fight_ID'])]== '11111'):
+  fightstring = str(indict['Event_ID'])+'_'+str(indict['Fight_ID'])
+  if winners[fightstring][0] == '11111':
     indict['winner'] = 'draw'
-  else:
+  elif winners[fightstring][0] == '00000':
     indict['winner'] = 'no contest'
+  elif (winners[fightstring][0]== indict['R_ID']):
+    indict['winner'] = 'red'
+  else:
+    indict['winner'] = 'blue'
+  indict['winby'] = winners[fightstring][1]
   return indict
 
 pp = pprint.PrettyPrinter(indent=2)
@@ -109,10 +136,10 @@ FighterAndEventDic = map(create_dict, jsons)
 # and both red and blue fighter IDs
 # Now iterate through this dict and edit the members. 
 
-winners = readfile("Fights_winner.json","./Data/")
+winners = readfile("result.json","./Data/")
 updatedDicts = map(EditDict,FighterAndEventDic)
 flatteneddicts = map(flatten,updatedDicts)
-pp.pprint(flatteneddicts[-2])
+# pp.pprint(flatteneddicts[-2])
 df = pd.DataFrame.from_records(flatteneddicts)
 df.to_csv('./Data/finalout.csv',index=False, encoding='utf-8')
 for x in errors:
