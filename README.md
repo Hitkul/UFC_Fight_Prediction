@@ -13,4 +13,4 @@ Scrape name of all ufc fighter from ufc.com
 **Time_Bound_Data**
 Takes all the event data collected and builds Time bound profile of every fighter
 
-Prediction model is available at https://www.kaggle.com/calmdownkarm/ufc-predictor-and-notes
+Prediction model code at https://github.com/CalmDownKarm/fantastic-garbanzo or https://www.kaggle.com/calmdownkarm/ufc-predictor-and-notes
