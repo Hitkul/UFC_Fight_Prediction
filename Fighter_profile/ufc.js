@@ -2,12 +2,12 @@ var fs = require('fs');
 var jsonfile = require('jsonfile')
 var ufc = require('ufc');
 var count =0;
-var array = fs.readFileSync('name_files/name_ufc_part_1.txt').toString().split("\n");
+var array = fs.readFileSync('file8.txt').toString().split("\n");
 array.forEach(function(value){
-		var url = "http://www.ufc.com/fighter/"+value
+		var url = "http://www.ufc.com"+value
 		ufc.getFighter(url, function(data) {
 			// console.log(data);
-		   var file ='json/'+ value+'.json'
+		   var file ='json/'+ value.split("/")[2]+'.json'
 		jsonfile.writeFile(file, data, function (err) {
 			console.error(err)
 		})
