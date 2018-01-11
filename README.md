@@ -7,7 +7,7 @@ Result will also have data per round.
 Get profile of UFC fighter from ufc.com using https://github.com/valish/ufc-api
 
 **Fighter_name**
-Scrape name of all ufc fighter from ufc.com
+Scrape links of all ufc fighter profiles from ufc.com
 
 
 **Time_Bound_Data**
