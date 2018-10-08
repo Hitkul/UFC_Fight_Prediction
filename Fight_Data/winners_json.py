@@ -1,7 +1,8 @@
 import requests
 from bs4 import BeautifulSoup
 import json
-import urllib2
+from urllib.request import urlopen
+
 
 record = {}
 event_id = 0
@@ -29,7 +30,7 @@ def get_json():
 	# http://m.ufc.com/fm/api/event/detail/816.json
 	url = "http://m.ufc.com/fm/api/event/detail/"+str(event_id)+".json"
 	# print url
-	data = json.load(urllib2.urlopen(url))
+	data = json.load(urlopen(url))
 	# print data
 	json_for_each_fight = data["FightCard"]
 	for fight in json_for_each_fight:
@@ -55,11 +56,11 @@ def get_ids(link):
 		url = 'http://www.ufc.com'+link
 		source_code = requests.get(url, allow_redirects=False)
 		plain_text = source_code.text.encode('ascii', 'replace')
-		source = plain_text
+		source = plain_text.decode("utf-8")
 		edit  = source[source.find("document.refreshURL =")+57:source.find("document.refreshURL =")+60]
 		global event_id
 		event_id = edit
-		print event_id
+		print(event_id)
 		get_json()
 
 

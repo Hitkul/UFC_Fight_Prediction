@@ -1,7 +1,8 @@
 import requests
 from bs4 import BeautifulSoup
 import json
-import urllib2
+from urllib.request import urlopen
+
 
 methods = {}
 event_id = 0
@@ -30,7 +31,7 @@ def spider(max_pages):
 
 def get_json():
 	url = "http://liveapi.fightmetric.com/V1/"+str(event_id)+"/Fnt.json"
-	data = json.load(urllib2.urlopen(url))
+	data = json.load(urlopen(url))
 	json_for_each_fight = data["FMLiveFeed"]["Fights"]
 	for fight in json_for_each_fight:
 		method = fight["Method"]
@@ -41,11 +42,11 @@ def get_ids(link):
 		url = 'http://www.ufc.com'+link
 		source_code = requests.get(url, allow_redirects=False)
 		plain_text = source_code.text.encode('ascii', 'replace')
-		source = plain_text
+		source = plain_text.decode("utf-8")
 		edit  = source[source.find("document.refreshURL =")+57:source.find("document.refreshURL =")+60]
 		global event_id
 		event_id = edit
-		print event_id
+		print(event_id)
 		get_json()
 
 
@@ -58,6 +59,6 @@ for link in links:
 # print(winners)
 for fight in winners:
 	master_dict[fight] = [winners[fight],methods[fight]]
-print master_dict
+print(master_dict)
 with open('result.json', 'w') as outfile:
      		json.dump(master_dict, outfile, indent=4)

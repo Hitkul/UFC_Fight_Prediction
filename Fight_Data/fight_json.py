@@ -1,7 +1,7 @@
 import requests
 from bs4 import BeautifulSoup
 import json
-import urllib2
+from urllib.request import urlopen
 
 fight_id = []
 event_id = 0
@@ -28,10 +28,11 @@ def spider(max_pages):
 def get_json():
 	print("in get_json")
 	for h in fight_id:
-		print h+"    "+str(event_id)
+		print((h+"    "+str(event_id)))
 		url = "http://liveapi.fightmetric.com/V2/"+str(event_id)+"/"+str(h)+"/Stats.json"
 		# print url
-		data = json.load(urllib2.urlopen(url))
+		print(url)
+		data = json.load(urlopen(url))
 		print("got json")
 		# print h
 		with open('json/'+str(event_id)+"_"+str(h)+'.json', 'w') as outfile:
@@ -44,9 +45,9 @@ def get_ids(link):
 		url = 'http://www.ufc.com'+link
 		source_code = requests.get(url, allow_redirects=False)
 		plain_text = source_code.text.encode('ascii', 'replace')
-		source = plain_text
+		source = plain_text.decode("utf-8")
 		#fight id
-		# print type(source)
+		print(type(source))
 		edit  = source[source.find("fightOutcomeData"):]
 		foo = edit.split(";")
 		bar = foo[0][foo[0].find("{"):]
@@ -54,8 +55,8 @@ def get_ids(link):
 		sheep = bar.split(",")
 		for h in sheep:
 			fight_id.append(h[:h.find(":")][1:-1])
-		print fight_id
-		source = plain_text
+		print(fight_id)
+		source = plain_text.decode("utf-8")
 		edit  = source[source.find("document.refreshURL =")+57:source.find("document.refreshURL =")+60]
 		global event_id
 		event_id = edit
