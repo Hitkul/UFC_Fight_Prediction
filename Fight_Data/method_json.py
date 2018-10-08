@@ -47,6 +47,8 @@ def get_ids(link):
 		global event_id
 		event_id = edit
 		print(event_id)
+		if event_id == 'nul':
+			return 0
 		get_json()
 
 

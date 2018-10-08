@@ -60,6 +60,8 @@ def get_ids(link):
 		edit  = source[source.find("document.refreshURL =")+57:source.find("document.refreshURL =")+60]
 		global event_id
 		event_id = edit
+		if event_id == 'nul':
+			return 0
 		get_json()
 		print("leaving get_ids")
 
