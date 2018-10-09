@@ -1,5 +1,5 @@
 .gitignore
-Fight_Data/json/
+Fight_Data/fight_json/
 Fight_Data/result.json
 Fight_Data/winners.json
 Fighter_profile/fighter_profile_links.txt
