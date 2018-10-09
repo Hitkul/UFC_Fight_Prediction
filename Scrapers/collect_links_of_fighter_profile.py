@@ -17,7 +17,8 @@ def collect_links(max_pages):
 	return links
 
 
-links = collect_links(2185)
+# links = collect_links(2185)
+links = collect_links(300)
 batch_size = 100
 list_of_links = [links[x:x+batch_size] for x in range(0,len(links),batch_size)]
 
