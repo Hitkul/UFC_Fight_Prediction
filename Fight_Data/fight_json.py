@@ -23,9 +23,9 @@ def get_link_of_past_events(start_year,end_year):
 	return links
 
 def get_fight_json(event_id,fight_id):
-	print("fetching f{event_id} - f{fight_id}")
+	print(f"fetching {event_id} - {fight_id}")
 	try:
-		url = "http://liveapi.fightmetric.com/V2/"+str(event_id)+"/"+str(h)+"/Stats.json"
+		url = "http://liveapi.fightmetric.com/V2/"+str(event_id)+"/"+str(fight_id)+"/Stats.json"
 		return json.load(urlopen(url))
 	except:
 		print("error occured while fetching")
@@ -34,7 +34,7 @@ def get_fight_json(event_id,fight_id):
 		return None
 
 def dump_json(data,location,name):
-	with open(location+'/'+name'.json', 'w') as outfile:
+	with open(location+'/'+name+'.json', 'w') as outfile:
 		json.dump(data, outfile,indent=4)	
 
 
@@ -52,7 +52,6 @@ def get_event_and_fight_ids(link):
 	fight_id=[]
 	for h in sheep:
 		fight_id.append(h[:h.find(":")][1:-1])
-	print(fight_id)
 	source = plain_text.decode("utf-8")
 	edit  = source[source.find("document.refreshURL =")+57:source.find("document.refreshURL =")+60]
 	global event_id
@@ -60,14 +59,14 @@ def get_event_and_fight_ids(link):
 	return event_id,fight_id
 
 
-past_event_links = get_link_of_past_events(2014,2018)
+past_event_links = get_link_of_past_events(2014,2014)
 
 for link in past_event_links:
 	event_id,fight_id = get_event_and_fight_ids(link)
 	for fight in fight_id:
 		data = get_fight_json(event_id,fight)
 		if data!=None:
-			dump_json(fight_json_dump_location,str(event_id)+'_'+str(fight))
+			dump_json(data,fight_json_dump_location,str(event_id)+'_'+str(fight))
 
 with open('failed_to_fetch.txt', 'w') as f:
     for item in fights_failed_to_fetch:
