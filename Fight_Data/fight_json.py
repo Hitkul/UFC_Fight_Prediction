@@ -5,26 +5,23 @@ from urllib.request import urlopen
 
 fight_id = []
 event_id = 0
-links = []
 
 fight_json_dump_location = "fight_json"
 
-def spider(max_pages):
-	start_year =2014
-	while start_year <= max_pages:
+def get_link_of_past_events(start_year,end_year):
+	links = []
+	while start_year <= end_year:
 		url = 'http://www.ufc.com/event/Past_Events?year='+str(start_year)
 		source_code = requests.get(url, allow_redirects=False)
 		# print(source_code.raw)
 		plain_text = source_code.text.encode('ascii', 'replace')
 		soup = BeautifulSoup(plain_text,'html.parser')
 		for link in soup.findAll('td',{'class': 'event-title'}):
-			# print link
 			for href in link.findAll('a'):
-				# print href
 				foo = href.get('href')
 				links.append(foo)
-			# print(title)
 		start_year+=1;
+	return links
 
 def get_json():
 	print("in get_json")
@@ -41,19 +38,17 @@ def get_json():
 	print("leaving get_json")
 
 
-def get_ids(link):
-		print("in get id")
+def get_event_and_fight_ids(link):
 		url = 'http://www.ufc.com'+link
 		source_code = requests.get(url, allow_redirects=False)
 		plain_text = source_code.text.encode('ascii', 'replace')
 		source = plain_text.decode("utf-8")
-		#fight id
-		print(type(source))
 		edit  = source[source.find("fightOutcomeData"):]
 		foo = edit.split(";")
 		bar = foo[0][foo[0].find("{"):]
 		bar = bar[1:-1]
 		sheep = bar.split(",")
+		fight_id=[]
 		for h in sheep:
 			fight_id.append(h[:h.find(":")][1:-1])
 		print(fight_id)
@@ -61,14 +56,11 @@ def get_ids(link):
 		edit  = source[source.find("document.refreshURL =")+57:source.find("document.refreshURL =")+60]
 		global event_id
 		event_id = edit
-		if event_id == 'nul':
-			return 0
-		get_json()
-		print("leaving get_ids")
+		return event_id,fight_id
 
 
-spider(2018)
-for link in links:
+past_event_links = get_link_of_past_events(2014,2018)
+for link in past_event_links:
 	fight_id=[]
 	get_ids(link)
 
