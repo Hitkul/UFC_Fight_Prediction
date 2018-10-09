@@ -23,19 +23,17 @@ def get_link_of_past_events(start_year,end_year):
 		start_year+=1;
 	return links
 
-def get_json():
-	print("in get_json")
-	for h in fight_id:
-		print((h+"    "+str(event_id)))
-		url = "http://liveapi.fightmetric.com/V2/"+str(event_id)+"/"+str(h)+"/Stats.json"
-		# print url
-		print(url)
-		data = json.load(urlopen(url))
-		print("got json")
-		# print h
-		with open('json/'+str(event_id)+"_"+str(h)+'.json', 'w') as outfile:
-	    		json.dump(data, outfile,indent=4)	
-	print("leaving get_json")
+def get_fight_json(event_id,fight_id):
+	print("fetching f{event_id} - f{fight_id}")
+	url = "http://liveapi.fightmetric.com/V2/"+str(event_id)+"/"+str(h)+"/Stats.json"
+	data = json.load(urlopen(url))
+	return data
+	
+
+def dump_json(data,location,name):
+	with open(location+'/'+name'.json', 'w') as outfile:
+			json.dump(data, outfile,indent=4)	
+
 
 
 def get_event_and_fight_ids(link):
@@ -62,6 +60,9 @@ def get_event_and_fight_ids(link):
 past_event_links = get_link_of_past_events(2014,2018)
 for link in past_event_links:
 	event_id,fight_id = get_event_and_fight_ids(link)
+	for fight in fight_id:
+
+
 
 
 
