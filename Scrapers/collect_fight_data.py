@@ -48,6 +48,7 @@ def get_fight_winner(event_id):
 		print("could not fetch result for this")
 		global winners_failed_to_fetch
 		winners_failed_to_fetch.append(event_id)
+		return None
 	
 	for fight in json_for_each_fight:
 		fight_id = fight["statid"]
@@ -78,6 +79,7 @@ def get_win_method(event_id):
 			if key.split("_")[0] == str(event_id):
 				results_record[key] = [results_record[key],None]	
 		return None
+		
 	json_for_each_fight = data["FMLiveFeed"]["Fights"]
 	for fight in json_for_each_fight:
 		method = fight["Method"]
