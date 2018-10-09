@@ -64,9 +64,32 @@ def get_fight_winner(event_id):
 				results_record[str(event_id)+"_"+str(fight_id)] = "11111"#draw
 				break
 
+def get_win_method(event_id):
+	print(f"fetching win method of fight {event_id}")	
+	global results_record
+	url = "http://liveapi.fightmetric.com/V1/"+str(event_id)+"/Fnt.json"
+	try:
+		data = json.load(urlopen(url))
+	except:
+		print("failed to fetch win method")
+		global methods_failed_to_fetch
+		methods_failed_to_fetch.append(event_id)
+		for key in results_record.keys():
+			if key.split("_")[0] == str(event_id):
+				results_record[key] = [results_record[key],None]	
+		return None
+	json_for_each_fight = data["FMLiveFeed"]["Fights"]
+	for fight in json_for_each_fight:
+		method = fight["Method"]
+		fight_id = fight["FightID"]
+		key = str(event_id)+"_"+fight_id
+		if key in results_record.keys():
+			results_record[key] = [results_record[key],method] 
+		else:
+			results_record[key] = [None,method] 
 
-def dump_json(data,location,name):
-	with open(location+'/'+name+'.json', 'w') as outfile:
+def dump_json(data,location):
+	with open(location+'.json', 'w') as outfile:
 		json.dump(data, outfile,indent=4)	
 
 
@@ -99,9 +122,13 @@ for link in past_event_links:
 	# for fight in fight_id:
 	# 	data = get_fight_json(event_id,fight)
 	# 	if data!=None:
-	# 		dump_json(data,fight_json_dump_location,str(event_id)+'_'+str(fight))
+	# 		dump_json(data,fight_json_dump_location+str(event_id)+'_'+str(fight))
 
 	get_fight_winner(event_id)
+
+	get_win_method(event_id)
+
+	dump_json(results_record,"results_record")
 
 with open('fights_failed_to_fetch.txt', 'w') as f:
     for item in fights_failed_to_fetch:
@@ -109,9 +136,13 @@ with open('fights_failed_to_fetch.txt', 'w') as f:
 
 
 with open('winners_failed_to_fetch.txt', 'w') as f:
-    for item in fights_failed_to_fetch:
+    for item in winners_failed_to_fetch:
         f.write("%s\n" % item)
 
+
+with open('methods_failed_to_fetch.txt', 'w') as f:
+    for item in methods_failed_to_fetch:
+        f.write("%s\n" % item)
 
 
 
