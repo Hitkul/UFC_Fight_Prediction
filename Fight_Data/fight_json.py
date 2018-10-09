@@ -6,6 +6,9 @@ from urllib.request import urlopen
 
 fight_json_dump_location = "fight_json"
 fights_failed_to_fetch = []
+winners_failed_to_fetch = []
+methods_failed_to_fetch = []
+results_record = dict()
 
 def get_link_of_past_events(start_year,end_year):
 	links = []
@@ -19,7 +22,7 @@ def get_link_of_past_events(start_year,end_year):
 			for href in link.findAll('a'):
 				foo = href.get('href')
 				links.append(foo)
-		start_year+=1;
+		start_year+=1
 	return links
 
 def get_fight_json(event_id,fight_id):
@@ -32,6 +35,35 @@ def get_fight_json(event_id,fight_id):
 		global fights_failed_to_fetch
 		fights_failed_to_fetch.append((event_id,fight_id))
 		return None
+
+
+def get_fight_winner(event_id):
+	print(f"fetching winners of fight {event_id}")
+	global results_record
+	url = "http://m.ufc.com/fm/api/event/detail/"+str(event_id)+".json"
+	try:
+		data = json.load(urlopen(url))
+		json_for_each_fight = data["FightCard"]
+	except:
+		print("could not fetch result for this")
+		global winners_failed_to_fetch
+		winners_failed_to_fetch.append(event_id)
+	
+	for fight in json_for_each_fight:
+		fight_id = fight["statid"]
+		json_for_each_fighter = fight["Fighters"]
+		for fighter in json_for_each_fighter:
+			if fighter["Outcome"]["OutcomeID"] == "1"  :
+				winning_fighter_id = fighter["statid"]
+				results_record[str(event_id)+"_"+str(fight_id)] = winning_fighter_id
+				break
+			elif fighter["Outcome"]["OutcomeID"] == "4":
+				results_record[str(event_id)+"_"+str(fight_id)] = "00000"# no contest
+				break
+			elif fighter["Outcome"]["OutcomeID"] == "3":
+				results_record[str(event_id)+"_"+str(fight_id)] = "11111"#draw
+				break
+
 
 def dump_json(data,location,name):
 	with open(location+'/'+name+'.json', 'w') as outfile:
@@ -63,16 +95,22 @@ past_event_links = get_link_of_past_events(2014,2014)
 
 for link in past_event_links:
 	event_id,fight_id = get_event_and_fight_ids(link)
-	for fight in fight_id:
-		data = get_fight_json(event_id,fight)
-		if data!=None:
-			dump_json(data,fight_json_dump_location,str(event_id)+'_'+str(fight))
+	
+	# for fight in fight_id:
+	# 	data = get_fight_json(event_id,fight)
+	# 	if data!=None:
+	# 		dump_json(data,fight_json_dump_location,str(event_id)+'_'+str(fight))
 
-with open('failed_to_fetch.txt', 'w') as f:
+	get_fight_winner(event_id)
+
+with open('fights_failed_to_fetch.txt', 'w') as f:
     for item in fights_failed_to_fetch:
         f.write("%s\n" % item)
 
 
+with open('winners_failed_to_fetch.txt', 'w') as f:
+    for item in fights_failed_to_fetch:
+        f.write("%s\n" % item)
 
 
 
