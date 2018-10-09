@@ -5,8 +5,9 @@ from urllib.request import urlopen
 
 fight_id = []
 event_id = 0
-
 links = []
+
+fight_json_dump_location = "fight_json"
 
 def spider(max_pages):
 	start_year =2014

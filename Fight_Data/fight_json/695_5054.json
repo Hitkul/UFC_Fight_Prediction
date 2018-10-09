@@ -1,0 +1,1541 @@
+{
+    "Type": "Stats",
+    "Timestamp": "04:35:24 11/24/2017",
+    "FMLiveFeed": {
+        "EventID": "695",
+        "FightCard": {
+            "CurRound": "1",
+            "FightID": "5054",
+            "TotalNumOfRounds": "3",
+            "Accolade": "",
+            "Referee": "John McCarthy",
+            "WeightClass": "Heavyweight",
+            "Status": "official",
+            "Fight": [
+                {
+                    "Fighters": [
+                        {
+                            "Name": "Stefan Struve",
+                            "FighterID": "649",
+                            "Color": "Blue"
+                        },
+                        {
+                            "Name": "Alistair Overeem",
+                            "FighterID": "808",
+                            "Color": "Red"
+                        }
+                    ]
+                },
+                {
+                    "RoundStats": [
+                        {
+                            "RoundNum": "1",
+                            "Round": [
+                                {
+                                    "FighterID": "808",
+                                    "Color": "Red",
+                                    "Fighter": [
+                                        {
+                                            "Strikes": [
+                                                {
+                                                    "ID": "KD",
+                                                    "Name": "Knock down",
+                                                    "Landed": "0"
+                                                },
+                                                {
+                                                    "ID": "SS",
+                                                    "Name": "Significant Strikes",
+                                                    "Attempts": "25",
+                                                    "Landed": "17",
+                                                    "Pct": "68.00",
+                                                    "Missed": "8"
+                                                },
+                                                {
+                                                    "ID": "TS",
+                                                    "Name": "Total Strikes",
+                                                    "Attempts": "32",
+                                                    "Landed": "24",
+                                                    "Missed": "8",
+                                                    "Pct": "75.0"
+                                                },
+                                                {
+                                                    "ID": "P",
+                                                    "Name": "Punches",
+                                                    "Attempts": "",
+                                                    "Landed": "",
+                                                    "Missed": "",
+                                                    "Pct": ""
+                                                },
+                                                {
+                                                    "ID": "K",
+                                                    "Name": "Kicks",
+                                                    "Attempts": "",
+                                                    "Landed": "",
+                                                    "Missed": "",
+                                                    "Pct": ""
+                                                },
+                                                {
+                                                    "ID": "D",
+                                                    "Name": "Distance Strikes",
+                                                    "Attempts": "2",
+                                                    "Landed": "0",
+                                                    "Missed": "2",
+                                                    "Pct": "0.0"
+                                                },
+                                                {
+                                                    "ID": "CS",
+                                                    "Name": "Clinch Significant Strikes",
+                                                    "Attempts": "3",
+                                                    "Landed": "3",
+                                                    "Missed": "0",
+                                                    "Pct": "100.0"
+                                                },
+                                                {
+                                                    "ID": "GS",
+                                                    "Name": "Ground Significant Strikes",
+                                                    "Attempts": "20",
+                                                    "Landed": "14",
+                                                    "Missed": "6",
+                                                    "Pct": "70.0"
+                                                },
+                                                {
+                                                    "ID": "C",
+                                                    "Name": "Clinch Total Strikes ",
+                                                    "Attempts": "4",
+                                                    "Landed": "4",
+                                                    "Missed": "0",
+                                                    "Pct": "100.0"
+                                                },
+                                                {
+                                                    "ID": "G",
+                                                    "Name": "Ground Total Strikes ",
+                                                    "Attempts": "26",
+                                                    "Landed": "20",
+                                                    "Missed": "6",
+                                                    "Pct": "76.92"
+                                                },
+                                                {
+                                                    "ID": "HS",
+                                                    "Name": "Head Significant Strikes",
+                                                    "Attempts": "18",
+                                                    "Landed": "12",
+                                                    "Missed": "6",
+                                                    "Pct": "66.67"
+                                                },
+                                                {
+                                                    "ID": "BS",
+                                                    "Name": "Body Significant Strikes",
+                                                    "Attempts": "6",
+                                                    "Landed": "5",
+                                                    "Missed": "1",
+                                                    "Pct": "83.33"
+                                                },
+                                                {
+                                                    "ID": "LS",
+                                                    "Name": "Legs Significant Strikes",
+                                                    "Attempts": "1",
+                                                    "Landed": "0",
+                                                    "Missed": "1",
+                                                    "Pct": "0.0"
+                                                },
+                                                {
+                                                    "ID": "H",
+                                                    "Name": "Head Total Strikes",
+                                                    "Attempts": "23",
+                                                    "Landed": "17",
+                                                    "Missed": "6",
+                                                    "Pct": "73.91"
+                                                },
+                                                {
+                                                    "ID": "B",
+                                                    "Name": "Body Total Strikes",
+                                                    "Attempts": "6",
+                                                    "Landed": "5",
+                                                    "Missed": "1",
+                                                    "Pct": "83.33"
+                                                },
+                                                {
+                                                    "ID": "L",
+                                                    "Name": "Legs Total Strikes",
+                                                    "Attempts": "3",
+                                                    "Landed": "2",
+                                                    "Missed": "1",
+                                                    "Pct": "66.67"
+                                                },
+                                                {
+                                                    "ID": "DH",
+                                                    "Name": "Distance Head Strikes",
+                                                    "Attempts": "1",
+                                                    "Landed": "0",
+                                                    "Missed": "1",
+                                                    "Pct": "0.0"
+                                                },
+                                                {
+                                                    "ID": "DB",
+                                                    "Name": "Distance Body Strikes",
+                                                    "Attempts": "0",
+                                                    "Landed": "0",
+                                                    "Missed": "0",
+                                                    "Pct": "0"
+                                                },
+                                                {
+                                                    "ID": "DL",
+                                                    "Name": "Distance Leg Strikes",
+                                                    "Attempts": "1",
+                                                    "Landed": "0",
+                                                    "Missed": "1",
+                                                    "Pct": "0.0"
+                                                },
+                                                {
+                                                    "ID": "CH",
+                                                    "Name": "Clinch Head Strikes",
+                                                    "Attempts": "0",
+                                                    "Landed": "0",
+                                                    "Missed": "0",
+                                                    "Pct": "0"
+                                                },
+                                                {
+                                                    "ID": "CB",
+                                                    "Name": "Clinch Body Strikes",
+                                                    "Attempts": "3",
+                                                    "Landed": "3",
+                                                    "Missed": "0",
+                                                    "Pct": "100.0"
+                                                },
+                                                {
+                                                    "ID": "CL",
+                                                    "Name": "Clinch Leg Strikes",
+                                                    "Attempts": "0",
+                                                    "Landed": "0",
+                                                    "Missed": "0",
+                                                    "Pct": "0"
+                                                },
+                                                {
+                                                    "ID": "GH",
+                                                    "Name": "Ground Head Strikes",
+                                                    "Attempts": "17",
+                                                    "Landed": "12",
+                                                    "Missed": "5",
+                                                    "Pct": "70.59"
+                                                },
+                                                {
+                                                    "ID": "GB",
+                                                    "Name": "Ground Body Strikes",
+                                                    "Attempts": "3",
+                                                    "Landed": "2",
+                                                    "Missed": "1",
+                                                    "Pct": "66.67"
+                                                },
+                                                {
+                                                    "ID": "GL",
+                                                    "Name": "Ground Leg Strikes",
+                                                    "Attempts": "0",
+                                                    "Landed": "0",
+                                                    "Missed": "0",
+                                                    "Pct": "0"
+                                                },
+                                                {
+                                                    "ID": "DHK",
+                                                    "Name": "Distance Head Kicks",
+                                                    "Attempts": "",
+                                                    "Landed": "",
+                                                    "Missed": "",
+                                                    "Pct": ""
+                                                },
+                                                {
+                                                    "ID": "DBK",
+                                                    "Name": "Distance Body Kicks",
+                                                    "Attempts": "",
+                                                    "Landed": "",
+                                                    "Missed": "",
+                                                    "Pct": ""
+                                                },
+                                                {
+                                                    "ID": "DLK",
+                                                    "Name": "Distance Leg Kicks",
+                                                    "Attempts": "",
+                                                    "Landed": "",
+                                                    "Missed": "",
+                                                    "Pct": ""
+                                                },
+                                                {
+                                                    "ID": "DHP",
+                                                    "Name": "Distance Head Punches",
+                                                    "Attempts": "",
+                                                    "Landed": "",
+                                                    "Missed": "",
+                                                    "Pct": ""
+                                                },
+                                                {
+                                                    "ID": "DBP",
+                                                    "Name": "Distance Body Punches",
+                                                    "Attempts": "",
+                                                    "Landed": "",
+                                                    "Missed": "",
+                                                    "Pct": ""
+                                                },
+                                                {
+                                                    "ID": "CSK",
+                                                    "Name": "Clinch Significant Kicks",
+                                                    "Attempts": "",
+                                                    "Landed": "",
+                                                    "Missed": "",
+                                                    "Pct": ""
+                                                },
+                                                {
+                                                    "ID": "CSP",
+                                                    "Name": "Clinch Significant Punches",
+                                                    "Attempts": "",
+                                                    "Landed": "",
+                                                    "Missed": "",
+                                                    "Pct": ""
+                                                },
+                                                {
+                                                    "ID": "GSK",
+                                                    "Name": "Ground Significant Kicks",
+                                                    "Attempts": "",
+                                                    "Landed": "",
+                                                    "Missed": "",
+                                                    "Pct": ""
+                                                },
+                                                {
+                                                    "ID": "GSP",
+                                                    "Name": "Ground Significant Punches",
+                                                    "Attempts": "",
+                                                    "Landed": "",
+                                                    "Missed": "",
+                                                    "Pct": ""
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "Grappling": [
+                                                {
+                                                    "ID": "TD",
+                                                    "Name": "Takedowns",
+                                                    "Attempts": "2",
+                                                    "Success": "1",
+                                                    "Pct": "50.00"
+                                                },
+                                                {
+                                                    "ID": "SUB",
+                                                    "Name": "Submissions",
+                                                    "Attempts": "0"
+                                                },
+                                                {
+                                                    "ID": "REV",
+                                                    "Name": "Reversals",
+                                                    "Success": "0"
+                                                },
+                                                {
+                                                    "ID": "STND",
+                                                    "Name": "Standups",
+                                                    "Success": "0"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "TIP": [
+                                                {
+                                                    "ID": "ST",
+                                                    "Name": "Standing Time",
+                                                    "Time": ""
+                                                },
+                                                {
+                                                    "ID": "GT",
+                                                    "Name": "Ground Time",
+                                                    "Time": ""
+                                                },
+                                                {
+                                                    "ID": "CT",
+                                                    "Name": "Control Time",
+                                                    "Time": ""
+                                                },
+                                                {
+                                                    "ID": "NT",
+                                                    "Name": "Neutral Time",
+                                                    "Time": ""
+                                                },
+                                                {
+                                                    "ID": "GCT",
+                                                    "Name": "Ground Control Time",
+                                                    "Time": ""
+                                                },
+                                                {
+                                                    "ID": "DT",
+                                                    "Name": "Distance Time",
+                                                    "Time": ""
+                                                },
+                                                {
+                                                    "ID": "CLT",
+                                                    "Name": "Clinch Time",
+                                                    "Time": ""
+                                                },
+                                                {
+                                                    "ID": "MGCT",
+                                                    "Name": "Misc. Ground Control Time",
+                                                    "Time": ""
+                                                },
+                                                {
+                                                    "ID": "GUCT",
+                                                    "Name": "Guard Control Time",
+                                                    "Time": ""
+                                                },
+                                                {
+                                                    "ID": "HGCT",
+                                                    "Name": "Half Guard Control Time",
+                                                    "Time": ""
+                                                },
+                                                {
+                                                    "ID": "SCT",
+                                                    "Name": "Side Control Time",
+                                                    "Time": ""
+                                                },
+                                                {
+                                                    "ID": "MCT",
+                                                    "Name": "Mount Control Time",
+                                                    "Time": ""
+                                                },
+                                                {
+                                                    "ID": "BCT",
+                                                    "Name": "Back Control Time",
+                                                    "Time": ""
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                },
+                                {
+                                    "FighterID": "649",
+                                    "Color": "Blue",
+                                    "Fighter": [
+                                        {
+                                            "Strikes": [
+                                                {
+                                                    "ID": "KD",
+                                                    "Name": "Knock down",
+                                                    "Landed": "0"
+                                                },
+                                                {
+                                                    "ID": "SS",
+                                                    "Name": "Significant Strikes",
+                                                    "Attempts": "5",
+                                                    "Landed": "2",
+                                                    "Pct": "40.00",
+                                                    "Missed": "3"
+                                                },
+                                                {
+                                                    "ID": "TS",
+                                                    "Name": "Total Strikes",
+                                                    "Attempts": "7",
+                                                    "Landed": "4",
+                                                    "Missed": "3",
+                                                    "Pct": "57.14"
+                                                },
+                                                {
+                                                    "ID": "P",
+                                                    "Name": "Punches",
+                                                    "Attempts": "",
+                                                    "Landed": "",
+                                                    "Missed": "",
+                                                    "Pct": ""
+                                                },
+                                                {
+                                                    "ID": "K",
+                                                    "Name": "Kicks",
+                                                    "Attempts": "",
+                                                    "Landed": "",
+                                                    "Missed": "",
+                                                    "Pct": ""
+                                                },
+                                                {
+                                                    "ID": "D",
+                                                    "Name": "Distance Strikes",
+                                                    "Attempts": "4",
+                                                    "Landed": "2",
+                                                    "Missed": "2",
+                                                    "Pct": "50.0"
+                                                },
+                                                {
+                                                    "ID": "CS",
+                                                    "Name": "Clinch Significant Strikes",
+                                                    "Attempts": "1",
+                                                    "Landed": "0",
+                                                    "Missed": "1",
+                                                    "Pct": "0.0"
+                                                },
+                                                {
+                                                    "ID": "GS",
+                                                    "Name": "Ground Significant Strikes",
+                                                    "Attempts": "0",
+                                                    "Landed": "0",
+                                                    "Missed": "0",
+                                                    "Pct": "0"
+                                                },
+                                                {
+                                                    "ID": "C",
+                                                    "Name": "Clinch Total Strikes ",
+                                                    "Attempts": "2",
+                                                    "Landed": "1",
+                                                    "Missed": "1",
+                                                    "Pct": "50.0"
+                                                },
+                                                {
+                                                    "ID": "G",
+                                                    "Name": "Ground Total Strikes ",
+                                                    "Attempts": "1",
+                                                    "Landed": "1",
+                                                    "Missed": "0",
+                                                    "Pct": "100.0"
+                                                },
+                                                {
+                                                    "ID": "HS",
+                                                    "Name": "Head Significant Strikes",
+                                                    "Attempts": "3",
+                                                    "Landed": "0",
+                                                    "Missed": "3",
+                                                    "Pct": "0.0"
+                                                },
+                                                {
+                                                    "ID": "BS",
+                                                    "Name": "Body Significant Strikes",
+                                                    "Attempts": "2",
+                                                    "Landed": "2",
+                                                    "Missed": "0",
+                                                    "Pct": "100.0"
+                                                },
+                                                {
+                                                    "ID": "LS",
+                                                    "Name": "Legs Significant Strikes",
+                                                    "Attempts": "0",
+                                                    "Landed": "0",
+                                                    "Missed": "0",
+                                                    "Pct": "0"
+                                                },
+                                                {
+                                                    "ID": "H",
+                                                    "Name": "Head Total Strikes",
+                                                    "Attempts": "4",
+                                                    "Landed": "1",
+                                                    "Missed": "3",
+                                                    "Pct": "25.0"
+                                                },
+                                                {
+                                                    "ID": "B",
+                                                    "Name": "Body Total Strikes",
+                                                    "Attempts": "2",
+                                                    "Landed": "2",
+                                                    "Missed": "0",
+                                                    "Pct": "100.0"
+                                                },
+                                                {
+                                                    "ID": "L",
+                                                    "Name": "Legs Total Strikes",
+                                                    "Attempts": "1",
+                                                    "Landed": "1",
+                                                    "Missed": "0",
+                                                    "Pct": "100.0"
+                                                },
+                                                {
+                                                    "ID": "DH",
+                                                    "Name": "Distance Head Strikes",
+                                                    "Attempts": "2",
+                                                    "Landed": "0",
+                                                    "Missed": "2",
+                                                    "Pct": "0.0"
+                                                },
+                                                {
+                                                    "ID": "DB",
+                                                    "Name": "Distance Body Strikes",
+                                                    "Attempts": "2",
+                                                    "Landed": "2",
+                                                    "Missed": "0",
+                                                    "Pct": "100.0"
+                                                },
+                                                {
+                                                    "ID": "DL",
+                                                    "Name": "Distance Leg Strikes",
+                                                    "Attempts": "0",
+                                                    "Landed": "0",
+                                                    "Missed": "0",
+                                                    "Pct": "0"
+                                                },
+                                                {
+                                                    "ID": "CH",
+                                                    "Name": "Clinch Head Strikes",
+                                                    "Attempts": "1",
+                                                    "Landed": "0",
+                                                    "Missed": "1",
+                                                    "Pct": "0.0"
+                                                },
+                                                {
+                                                    "ID": "CB",
+                                                    "Name": "Clinch Body Strikes",
+                                                    "Attempts": "0",
+                                                    "Landed": "0",
+                                                    "Missed": "0",
+                                                    "Pct": "0"
+                                                },
+                                                {
+                                                    "ID": "CL",
+                                                    "Name": "Clinch Leg Strikes",
+                                                    "Attempts": "0",
+                                                    "Landed": "0",
+                                                    "Missed": "0",
+                                                    "Pct": "0"
+                                                },
+                                                {
+                                                    "ID": "GH",
+                                                    "Name": "Ground Head Strikes",
+                                                    "Attempts": "0",
+                                                    "Landed": "0",
+                                                    "Missed": "0",
+                                                    "Pct": "0"
+                                                },
+                                                {
+                                                    "ID": "GB",
+                                                    "Name": "Ground Body Strikes",
+                                                    "Attempts": "0",
+                                                    "Landed": "0",
+                                                    "Missed": "0",
+                                                    "Pct": "0"
+                                                },
+                                                {
+                                                    "ID": "GL",
+                                                    "Name": "Ground Leg Strikes",
+                                                    "Attempts": "0",
+                                                    "Landed": "0",
+                                                    "Missed": "0",
+                                                    "Pct": "0"
+                                                },
+                                                {
+                                                    "ID": "DHK",
+                                                    "Name": "Distance Head Kicks",
+                                                    "Attempts": "",
+                                                    "Landed": "",
+                                                    "Missed": "",
+                                                    "Pct": ""
+                                                },
+                                                {
+                                                    "ID": "DBK",
+                                                    "Name": "Distance Body Kicks",
+                                                    "Attempts": "",
+                                                    "Landed": "",
+                                                    "Missed": "",
+                                                    "Pct": ""
+                                                },
+                                                {
+                                                    "ID": "DLK",
+                                                    "Name": "Distance Leg Kicks",
+                                                    "Attempts": "",
+                                                    "Landed": "",
+                                                    "Missed": "",
+                                                    "Pct": ""
+                                                },
+                                                {
+                                                    "ID": "DHP",
+                                                    "Name": "Distance Head Punches",
+                                                    "Attempts": "",
+                                                    "Landed": "",
+                                                    "Missed": "",
+                                                    "Pct": ""
+                                                },
+                                                {
+                                                    "ID": "DBP",
+                                                    "Name": "Distance Body Punches",
+                                                    "Attempts": "",
+                                                    "Landed": "",
+                                                    "Missed": "",
+                                                    "Pct": ""
+                                                },
+                                                {
+                                                    "ID": "CSK",
+                                                    "Name": "Clinch Significant Kicks",
+                                                    "Attempts": "",
+                                                    "Landed": "",
+                                                    "Missed": "",
+                                                    "Pct": ""
+                                                },
+                                                {
+                                                    "ID": "CSP",
+                                                    "Name": "Clinch Significant Punches",
+                                                    "Attempts": "",
+                                                    "Landed": "",
+                                                    "Missed": "",
+                                                    "Pct": ""
+                                                },
+                                                {
+                                                    "ID": "GSK",
+                                                    "Name": "Ground Significant Kicks",
+                                                    "Attempts": "",
+                                                    "Landed": "",
+                                                    "Missed": "",
+                                                    "Pct": ""
+                                                },
+                                                {
+                                                    "ID": "GSP",
+                                                    "Name": "Ground Significant Punches",
+                                                    "Attempts": "",
+                                                    "Landed": "",
+                                                    "Missed": "",
+                                                    "Pct": ""
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "Grappling": [
+                                                {
+                                                    "ID": "TD",
+                                                    "Name": "Takedowns",
+                                                    "Attempts": "0",
+                                                    "Success": "0",
+                                                    "Pct": "0.00"
+                                                },
+                                                {
+                                                    "ID": "SUB",
+                                                    "Name": "Submissions",
+                                                    "Attempts": "0"
+                                                },
+                                                {
+                                                    "ID": "REV",
+                                                    "Name": "Reversals",
+                                                    "Success": "0"
+                                                },
+                                                {
+                                                    "ID": "STND",
+                                                    "Name": "Standups",
+                                                    "Success": "0"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "TIP": [
+                                                {
+                                                    "ID": "ST",
+                                                    "Name": "Standing Time",
+                                                    "Time": ""
+                                                },
+                                                {
+                                                    "ID": "GT",
+                                                    "Name": "Ground Time",
+                                                    "Time": ""
+                                                },
+                                                {
+                                                    "ID": "CT",
+                                                    "Name": "Control Time",
+                                                    "Time": ""
+                                                },
+                                                {
+                                                    "ID": "NT",
+                                                    "Name": "Neutral Time",
+                                                    "Time": ""
+                                                },
+                                                {
+                                                    "ID": "GCT",
+                                                    "Name": "Ground Control Time",
+                                                    "Time": ""
+                                                },
+                                                {
+                                                    "ID": "DT",
+                                                    "Name": "Distance Time",
+                                                    "Time": ""
+                                                },
+                                                {
+                                                    "ID": "CLT",
+                                                    "Name": "Clinch Time",
+                                                    "Time": ""
+                                                },
+                                                {
+                                                    "ID": "MGCT",
+                                                    "Name": "Misc. Ground Control Time",
+                                                    "Time": ""
+                                                },
+                                                {
+                                                    "ID": "GUCT",
+                                                    "Name": "Guard Control Time",
+                                                    "Time": ""
+                                                },
+                                                {
+                                                    "ID": "HGCT",
+                                                    "Name": "Half Guard Control Time",
+                                                    "Time": ""
+                                                },
+                                                {
+                                                    "ID": "SCT",
+                                                    "Name": "Side Control Time",
+                                                    "Time": ""
+                                                },
+                                                {
+                                                    "ID": "MCT",
+                                                    "Name": "Mount Control Time",
+                                                    "Time": ""
+                                                },
+                                                {
+                                                    "ID": "BCT",
+                                                    "Name": "Back Control Time",
+                                                    "Time": ""
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "FightStats": [
+                        {
+                            "FighterID": "808",
+                            "Color": "Red",
+                            "Fighter": [
+                                {
+                                    "Strikes": [
+                                        {
+                                            "ID": "KD",
+                                            "Name": "Knock down",
+                                            "Landed": "0"
+                                        },
+                                        {
+                                            "ID": "SS",
+                                            "Name": "Significant Strikes",
+                                            "Attempts": "25",
+                                            "Landed": "17",
+                                            "Pct": "68.00",
+                                            "Missed": "8"
+                                        },
+                                        {
+                                            "ID": "TS",
+                                            "Name": "Total Strikes",
+                                            "Attempts": "32",
+                                            "Landed": "24",
+                                            "Missed": "8",
+                                            "Pct": "75.0"
+                                        },
+                                        {
+                                            "ID": "P",
+                                            "Name": "Punches",
+                                            "Attempts": "",
+                                            "Landed": "",
+                                            "Missed": "",
+                                            "Pct": ""
+                                        },
+                                        {
+                                            "ID": "K",
+                                            "Name": "Kicks",
+                                            "Attempts": "",
+                                            "Landed": "",
+                                            "Missed": "",
+                                            "Pct": ""
+                                        },
+                                        {
+                                            "ID": "D",
+                                            "Name": "Distance Strikes",
+                                            "Attempts": "2",
+                                            "Landed": "0",
+                                            "Missed": "2",
+                                            "Pct": "0.0"
+                                        },
+                                        {
+                                            "ID": "CS",
+                                            "Name": "Clinch Significant Strikes",
+                                            "Attempts": "3",
+                                            "Landed": "3",
+                                            "Missed": "0",
+                                            "Pct": "100.0"
+                                        },
+                                        {
+                                            "ID": "GS",
+                                            "Name": "Ground Significant Strikes",
+                                            "Attempts": "20",
+                                            "Landed": "14",
+                                            "Missed": "6",
+                                            "Pct": "70.0"
+                                        },
+                                        {
+                                            "ID": "C",
+                                            "Name": "Clinch Total Strikes ",
+                                            "Attempts": "4",
+                                            "Landed": "4",
+                                            "Missed": "0",
+                                            "Pct": "100.0"
+                                        },
+                                        {
+                                            "ID": "G",
+                                            "Name": "Ground Total Strikes ",
+                                            "Attempts": "26",
+                                            "Landed": "20",
+                                            "Missed": "6",
+                                            "Pct": "76.92"
+                                        },
+                                        {
+                                            "ID": "HS",
+                                            "Name": "Head Significant Strikes",
+                                            "Attempts": "18",
+                                            "Landed": "12",
+                                            "Missed": "6",
+                                            "Pct": "66.67"
+                                        },
+                                        {
+                                            "ID": "BS",
+                                            "Name": "Body Significant Strikes",
+                                            "Attempts": "6",
+                                            "Landed": "5",
+                                            "Missed": "1",
+                                            "Pct": "83.33"
+                                        },
+                                        {
+                                            "ID": "LS",
+                                            "Name": "Legs Significant Strikes",
+                                            "Attempts": "1",
+                                            "Landed": "0",
+                                            "Missed": "1",
+                                            "Pct": "0.0"
+                                        },
+                                        {
+                                            "ID": "H",
+                                            "Name": "Head Total Strikes",
+                                            "Attempts": "23",
+                                            "Landed": "17",
+                                            "Missed": "6",
+                                            "Pct": "73.91"
+                                        },
+                                        {
+                                            "ID": "B",
+                                            "Name": "Body Total Strikes",
+                                            "Attempts": "6",
+                                            "Landed": "5",
+                                            "Missed": "1",
+                                            "Pct": "83.33"
+                                        },
+                                        {
+                                            "ID": "L",
+                                            "Name": "Legs Total Strikes",
+                                            "Attempts": "3",
+                                            "Landed": "2",
+                                            "Missed": "1",
+                                            "Pct": "66.67"
+                                        },
+                                        {
+                                            "ID": "DH",
+                                            "Name": "Distance Head Strikes",
+                                            "Attempts": "1",
+                                            "Landed": "0",
+                                            "Missed": "1",
+                                            "Pct": "0.0"
+                                        },
+                                        {
+                                            "ID": "DB",
+                                            "Name": "Distance Body Strikes",
+                                            "Attempts": "0",
+                                            "Landed": "0",
+                                            "Missed": "0",
+                                            "Pct": "0"
+                                        },
+                                        {
+                                            "ID": "DL",
+                                            "Name": "Distance Leg Strikes",
+                                            "Attempts": "1",
+                                            "Landed": "0",
+                                            "Missed": "1",
+                                            "Pct": "0.0"
+                                        },
+                                        {
+                                            "ID": "CH",
+                                            "Name": "Clinch Head Strikes",
+                                            "Attempts": "0",
+                                            "Landed": "0",
+                                            "Missed": "0",
+                                            "Pct": "0"
+                                        },
+                                        {
+                                            "ID": "CB",
+                                            "Name": "Clinch Body Strikes",
+                                            "Attempts": "3",
+                                            "Landed": "3",
+                                            "Missed": "0",
+                                            "Pct": "100.0"
+                                        },
+                                        {
+                                            "ID": "CL",
+                                            "Name": "Clinch Leg Strikes",
+                                            "Attempts": "0",
+                                            "Landed": "0",
+                                            "Missed": "0",
+                                            "Pct": "0"
+                                        },
+                                        {
+                                            "ID": "GH",
+                                            "Name": "Ground Head Strikes",
+                                            "Attempts": "17",
+                                            "Landed": "12",
+                                            "Missed": "5",
+                                            "Pct": "70.59"
+                                        },
+                                        {
+                                            "ID": "GB",
+                                            "Name": "Ground Body Strikes",
+                                            "Attempts": "3",
+                                            "Landed": "2",
+                                            "Missed": "1",
+                                            "Pct": "66.67"
+                                        },
+                                        {
+                                            "ID": "GL",
+                                            "Name": "Ground Leg Strikes",
+                                            "Attempts": "0",
+                                            "Landed": "0",
+                                            "Missed": "0",
+                                            "Pct": "0"
+                                        },
+                                        {
+                                            "ID": "DHK",
+                                            "Name": "Distance Head Kicks",
+                                            "Attempts": "",
+                                            "Landed": "",
+                                            "Missed": "",
+                                            "Pct": ""
+                                        },
+                                        {
+                                            "ID": "DBK",
+                                            "Name": "Distance Body Kicks",
+                                            "Attempts": "",
+                                            "Landed": "",
+                                            "Missed": "",
+                                            "Pct": ""
+                                        },
+                                        {
+                                            "ID": "DLK",
+                                            "Name": "Distance Leg Kicks",
+                                            "Attempts": "",
+                                            "Landed": "",
+                                            "Missed": "",
+                                            "Pct": ""
+                                        },
+                                        {
+                                            "ID": "DHP",
+                                            "Name": "Distance Head Punches",
+                                            "Attempts": "",
+                                            "Landed": "",
+                                            "Missed": "",
+                                            "Pct": ""
+                                        },
+                                        {
+                                            "ID": "DBP",
+                                            "Name": "Distance Body Punches",
+                                            "Attempts": "",
+                                            "Landed": "",
+                                            "Missed": "",
+                                            "Pct": ""
+                                        },
+                                        {
+                                            "ID": "CSK",
+                                            "Name": "Clinch Significant Kicks",
+                                            "Attempts": "",
+                                            "Landed": "",
+                                            "Missed": "",
+                                            "Pct": ""
+                                        },
+                                        {
+                                            "ID": "CSP",
+                                            "Name": "Clinch Significant Punches",
+                                            "Attempts": "",
+                                            "Landed": "",
+                                            "Missed": "",
+                                            "Pct": ""
+                                        },
+                                        {
+                                            "ID": "GSK",
+                                            "Name": "Ground Significant Kicks",
+                                            "Attempts": "",
+                                            "Landed": "",
+                                            "Missed": "",
+                                            "Pct": ""
+                                        },
+                                        {
+                                            "ID": "GSP",
+                                            "Name": "Ground Significant Punches",
+                                            "Attempts": "",
+                                            "Landed": "",
+                                            "Missed": "",
+                                            "Pct": ""
+                                        }
+                                    ]
+                                },
+                                {
+                                    "Grappling": [
+                                        {
+                                            "ID": "TD",
+                                            "Name": "Takedowns",
+                                            "Attempts": "2",
+                                            "Success": "1",
+                                            "Pct": "50.00"
+                                        },
+                                        {
+                                            "ID": "SUB",
+                                            "Name": "Submissions",
+                                            "Attempts": "0"
+                                        },
+                                        {
+                                            "ID": "REV",
+                                            "Name": "Reversals",
+                                            "Success": "0"
+                                        },
+                                        {
+                                            "ID": "STND",
+                                            "Name": "Standups",
+                                            "Success": "0"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "TIP": [
+                                        {
+                                            "ID": "ST",
+                                            "Name": "Standing Time",
+                                            "Time": ""
+                                        },
+                                        {
+                                            "ID": "GT",
+                                            "Name": "Ground Time",
+                                            "Time": ""
+                                        },
+                                        {
+                                            "ID": "CT",
+                                            "Name": "Control Time",
+                                            "Time": ""
+                                        },
+                                        {
+                                            "ID": "NT",
+                                            "Name": "Neutral Time",
+                                            "Time": ""
+                                        },
+                                        {
+                                            "ID": "GCT",
+                                            "Name": "Ground Control Time",
+                                            "Time": ""
+                                        },
+                                        {
+                                            "ID": "DT",
+                                            "Name": "Distance Time",
+                                            "Time": ""
+                                        },
+                                        {
+                                            "ID": "CLT",
+                                            "Name": "Clinch Time",
+                                            "Time": ""
+                                        },
+                                        {
+                                            "ID": "MGCT",
+                                            "Name": "Misc. Ground Control Time",
+                                            "Time": ""
+                                        },
+                                        {
+                                            "ID": "GUCT",
+                                            "Name": "Guard Control Time",
+                                            "Time": ""
+                                        },
+                                        {
+                                            "ID": "HGCT",
+                                            "Name": "Half Guard Control Time",
+                                            "Time": ""
+                                        },
+                                        {
+                                            "ID": "SCT",
+                                            "Name": "Side Control Time",
+                                            "Time": ""
+                                        },
+                                        {
+                                            "ID": "MCT",
+                                            "Name": "Mount Control Time",
+                                            "Time": ""
+                                        },
+                                        {
+                                            "ID": "BCT",
+                                            "Name": "Back Control Time",
+                                            "Time": ""
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "FighterID": "649",
+                            "Color": "Blue",
+                            "Fighter": [
+                                {
+                                    "Strikes": [
+                                        {
+                                            "ID": "KD",
+                                            "Name": "Knock down",
+                                            "Landed": "0"
+                                        },
+                                        {
+                                            "ID": "SS",
+                                            "Name": "Significant Strikes",
+                                            "Attempts": "5",
+                                            "Landed": "2",
+                                            "Pct": "40.00",
+                                            "Missed": "3"
+                                        },
+                                        {
+                                            "ID": "TS",
+                                            "Name": "Total Strikes",
+                                            "Attempts": "7",
+                                            "Landed": "4",
+                                            "Missed": "3",
+                                            "Pct": "57.14"
+                                        },
+                                        {
+                                            "ID": "P",
+                                            "Name": "Punches",
+                                            "Attempts": "",
+                                            "Landed": "",
+                                            "Missed": "",
+                                            "Pct": ""
+                                        },
+                                        {
+                                            "ID": "K",
+                                            "Name": "Kicks",
+                                            "Attempts": "",
+                                            "Landed": "",
+                                            "Missed": "",
+                                            "Pct": ""
+                                        },
+                                        {
+                                            "ID": "D",
+                                            "Name": "Distance Strikes",
+                                            "Attempts": "4",
+                                            "Landed": "2",
+                                            "Missed": "2",
+                                            "Pct": "50.0"
+                                        },
+                                        {
+                                            "ID": "CS",
+                                            "Name": "Clinch Significant Strikes",
+                                            "Attempts": "1",
+                                            "Landed": "0",
+                                            "Missed": "1",
+                                            "Pct": "0.0"
+                                        },
+                                        {
+                                            "ID": "GS",
+                                            "Name": "Ground Significant Strikes",
+                                            "Attempts": "0",
+                                            "Landed": "0",
+                                            "Missed": "0",
+                                            "Pct": "0"
+                                        },
+                                        {
+                                            "ID": "C",
+                                            "Name": "Clinch Total Strikes ",
+                                            "Attempts": "2",
+                                            "Landed": "1",
+                                            "Missed": "1",
+                                            "Pct": "50.0"
+                                        },
+                                        {
+                                            "ID": "G",
+                                            "Name": "Ground Total Strikes ",
+                                            "Attempts": "1",
+                                            "Landed": "1",
+                                            "Missed": "0",
+                                            "Pct": "100.0"
+                                        },
+                                        {
+                                            "ID": "HS",
+                                            "Name": "Head Significant Strikes",
+                                            "Attempts": "3",
+                                            "Landed": "0",
+                                            "Missed": "3",
+                                            "Pct": "0.0"
+                                        },
+                                        {
+                                            "ID": "BS",
+                                            "Name": "Body Significant Strikes",
+                                            "Attempts": "2",
+                                            "Landed": "2",
+                                            "Missed": "0",
+                                            "Pct": "100.0"
+                                        },
+                                        {
+                                            "ID": "LS",
+                                            "Name": "Legs Significant Strikes",
+                                            "Attempts": "0",
+                                            "Landed": "0",
+                                            "Missed": "0",
+                                            "Pct": "0"
+                                        },
+                                        {
+                                            "ID": "H",
+                                            "Name": "Head Total Strikes",
+                                            "Attempts": "4",
+                                            "Landed": "1",
+                                            "Missed": "3",
+                                            "Pct": "25.0"
+                                        },
+                                        {
+                                            "ID": "B",
+                                            "Name": "Body Total Strikes",
+                                            "Attempts": "2",
+                                            "Landed": "2",
+                                            "Missed": "0",
+                                            "Pct": "100.0"
+                                        },
+                                        {
+                                            "ID": "L",
+                                            "Name": "Legs Total Strikes",
+                                            "Attempts": "1",
+                                            "Landed": "1",
+                                            "Missed": "0",
+                                            "Pct": "100.0"
+                                        },
+                                        {
+                                            "ID": "DH",
+                                            "Name": "Distance Head Strikes",
+                                            "Attempts": "2",
+                                            "Landed": "0",
+                                            "Missed": "2",
+                                            "Pct": "0.0"
+                                        },
+                                        {
+                                            "ID": "DB",
+                                            "Name": "Distance Body Strikes",
+                                            "Attempts": "2",
+                                            "Landed": "2",
+                                            "Missed": "0",
+                                            "Pct": "100.0"
+                                        },
+                                        {
+                                            "ID": "DL",
+                                            "Name": "Distance Leg Strikes",
+                                            "Attempts": "0",
+                                            "Landed": "0",
+                                            "Missed": "0",
+                                            "Pct": "0"
+                                        },
+                                        {
+                                            "ID": "CH",
+                                            "Name": "Clinch Head Strikes",
+                                            "Attempts": "1",
+                                            "Landed": "0",
+                                            "Missed": "1",
+                                            "Pct": "0.0"
+                                        },
+                                        {
+                                            "ID": "CB",
+                                            "Name": "Clinch Body Strikes",
+                                            "Attempts": "0",
+                                            "Landed": "0",
+                                            "Missed": "0",
+                                            "Pct": "0"
+                                        },
+                                        {
+                                            "ID": "CL",
+                                            "Name": "Clinch Leg Strikes",
+                                            "Attempts": "0",
+                                            "Landed": "0",
+                                            "Missed": "0",
+                                            "Pct": "0"
+                                        },
+                                        {
+                                            "ID": "GH",
+                                            "Name": "Ground Head Strikes",
+                                            "Attempts": "0",
+                                            "Landed": "0",
+                                            "Missed": "0",
+                                            "Pct": "0"
+                                        },
+                                        {
+                                            "ID": "GB",
+                                            "Name": "Ground Body Strikes",
+                                            "Attempts": "0",
+                                            "Landed": "0",
+                                            "Missed": "0",
+                                            "Pct": "0"
+                                        },
+                                        {
+                                            "ID": "GL",
+                                            "Name": "Ground Leg Strikes",
+                                            "Attempts": "0",
+                                            "Landed": "0",
+                                            "Missed": "0",
+                                            "Pct": "0"
+                                        },
+                                        {
+                                            "ID": "DHK",
+                                            "Name": "Distance Head Kicks",
+                                            "Attempts": "",
+                                            "Landed": "",
+                                            "Missed": "",
+                                            "Pct": ""
+                                        },
+                                        {
+                                            "ID": "DBK",
+                                            "Name": "Distance Body Kicks",
+                                            "Attempts": "",
+                                            "Landed": "",
+                                            "Missed": "",
+                                            "Pct": ""
+                                        },
+                                        {
+                                            "ID": "DLK",
+                                            "Name": "Distance Leg Kicks",
+                                            "Attempts": "",
+                                            "Landed": "",
+                                            "Missed": "",
+                                            "Pct": ""
+                                        },
+                                        {
+                                            "ID": "DHP",
+                                            "Name": "Distance Head Punches",
+                                            "Attempts": "",
+                                            "Landed": "",
+                                            "Missed": "",
+                                            "Pct": ""
+                                        },
+                                        {
+                                            "ID": "DBP",
+                                            "Name": "Distance Body Punches",
+                                            "Attempts": "",
+                                            "Landed": "",
+                                            "Missed": "",
+                                            "Pct": ""
+                                        },
+                                        {
+                                            "ID": "CSK",
+                                            "Name": "Clinch Significant Kicks",
+                                            "Attempts": "",
+                                            "Landed": "",
+                                            "Missed": "",
+                                            "Pct": ""
+                                        },
+                                        {
+                                            "ID": "CSP",
+                                            "Name": "Clinch Significant Punches",
+                                            "Attempts": "",
+                                            "Landed": "",
+                                            "Missed": "",
+                                            "Pct": ""
+                                        },
+                                        {
+                                            "ID": "GSK",
+                                            "Name": "Ground Significant Kicks",
+                                            "Attempts": "",
+                                            "Landed": "",
+                                            "Missed": "",
+                                            "Pct": ""
+                                        },
+                                        {
+                                            "ID": "GSP",
+                                            "Name": "Ground Significant Punches",
+                                            "Attempts": "",
+                                            "Landed": "",
+                                            "Missed": "",
+                                            "Pct": ""
+                                        }
+                                    ]
+                                },
+                                {
+                                    "Grappling": [
+                                        {
+                                            "ID": "TD",
+                                            "Name": "Takedowns",
+                                            "Attempts": "0",
+                                            "Success": "0",
+                                            "Pct": "0.00"
+                                        },
+                                        {
+                                            "ID": "SUB",
+                                            "Name": "Submissions",
+                                            "Attempts": "0"
+                                        },
+                                        {
+                                            "ID": "REV",
+                                            "Name": "Reversals",
+                                            "Success": "0"
+                                        },
+                                        {
+                                            "ID": "STND",
+                                            "Name": "Standups",
+                                            "Success": "0"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "TIP": [
+                                        {
+                                            "ID": "ST",
+                                            "Name": "Standing Time",
+                                            "Time": ""
+                                        },
+                                        {
+                                            "ID": "GT",
+                                            "Name": "Ground Time",
+                                            "Time": ""
+                                        },
+                                        {
+                                            "ID": "CT",
+                                            "Name": "Control Time",
+                                            "Time": ""
+                                        },
+                                        {
+                                            "ID": "NT",
+                                            "Name": "Neutral Time",
+                                            "Time": ""
+                                        },
+                                        {
+                                            "ID": "GCT",
+                                            "Name": "Ground Control Time",
+                                            "Time": ""
+                                        },
+                                        {
+                                            "ID": "DT",
+                                            "Name": "Distance Time",
+                                            "Time": ""
+                                        },
+                                        {
+                                            "ID": "CLT",
+                                            "Name": "Clinch Time",
+                                            "Time": ""
+                                        },
+                                        {
+                                            "ID": "MGCT",
+                                            "Name": "Misc. Ground Control Time",
+                                            "Time": ""
+                                        },
+                                        {
+                                            "ID": "GUCT",
+                                            "Name": "Guard Control Time",
+                                            "Time": ""
+                                        },
+                                        {
+                                            "ID": "HGCT",
+                                            "Name": "Half Guard Control Time",
+                                            "Time": ""
+                                        },
+                                        {
+                                            "ID": "SCT",
+                                            "Name": "Side Control Time",
+                                            "Time": ""
+                                        },
+                                        {
+                                            "ID": "MCT",
+                                            "Name": "Mount Control Time",
+                                            "Time": ""
+                                        },
+                                        {
+                                            "ID": "BCT",
+                                            "Name": "Back Control Time",
+                                            "Time": ""
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+}
