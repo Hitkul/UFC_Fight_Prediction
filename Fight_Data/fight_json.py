@@ -61,8 +61,7 @@ def get_event_and_fight_ids(link):
 
 past_event_links = get_link_of_past_events(2014,2018)
 for link in past_event_links:
-	fight_id=[]
-	get_ids(link)
+	event_id,fight_id = get_event_and_fight_ids(link)
 
 
 
