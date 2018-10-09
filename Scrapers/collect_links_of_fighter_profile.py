@@ -1,10 +1,10 @@
 
 import requests
 from bs4 import BeautifulSoup
-links = []
-#scraping profile links insted of names
-def trade_spider(max_pages):
+
+def collect_links(max_pages):
 	offset =0 
+	links = list()
 	while offset <= max_pages:
 		print(offset,max_pages)
 		url = 'http://www.ufc.com/fighter/Weight_Class?offset='+str(offset)+'&max=20&sort=lastName&order=asc&weightClass=null&fighterFilter=All'
@@ -13,13 +13,15 @@ def trade_spider(max_pages):
 		soup = BeautifulSoup(plain_text,'html.parser')
 		for link in soup.findAll('a',{'class': 'fighter-name'}):
 			links.append(link.get('href'))
-			# title = link.string
-			# print(href)
-			# print(title.encode('utf-8'))
 		offset += 20
+	return links
 
 
-trade_spider(2185)
-with open('fihter_profile_links.txt', 'w') as fp:
-	for link in links:
-		fp.write(link+'\n')
+links = collect_links(2185)
+batch_size = 100
+list_of_links = [links[x:x+batch_size] for x in range(0,len(links),batch_size)]
+
+for i,links in enumerate(list_of_links):
+	with open(f'data/profile_links/fighter_profile_links{i}.txt', 'w') as fp:
+		for link in links:
+			fp.write(link+'\n')
