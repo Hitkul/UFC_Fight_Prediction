@@ -1,9 +1,6 @@
 .gitignore
-Scrapers/fight_json/
-Scrapers/fights_failed_to_fetch.txt
-Scrapers/winners_failed_to_fetch.txt
-Scrapers/methods_failed_to_fetch.txt
-Scrapers/results_record.json
+Scrapers/data/
+Scrapers/failed_history/
 Fighter_profile/fighter_profile_links.txt
 Fighter_profile/json/
 Fighter_profile/node_modules/
