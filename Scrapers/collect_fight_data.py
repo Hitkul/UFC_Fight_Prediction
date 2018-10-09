@@ -123,7 +123,7 @@ for link in past_event_links:
 	for fight in fight_id:
 		data = get_fight_json(event_id,fight)
 		if data!=None:
-			dump_json(data,fight_json_dump_location+str(event_id)+'_'+str(fight))
+			dump_json(data,fight_json_dump_location+"/"+str(event_id)+'_'+str(fight))
 
 	get_fight_winner(event_id)
 
