@@ -4,7 +4,7 @@ import json
 from urllib.request import urlopen
 
 
-fight_json_dump_location = "fight_json"
+fight_json_dump_location = "data/fight_json"
 fights_failed_to_fetch = []
 winners_failed_to_fetch = []
 methods_failed_to_fetch = []
@@ -95,6 +95,7 @@ def dump_json(data,location):
 
 
 def get_event_and_fight_ids(link):
+	print("getting event_id and fight_ids")
 	url = 'http://www.ufc.com'+link
 	source_code = requests.get(url, allow_redirects=False)
 	plain_text = source_code.text.encode('ascii', 'replace')
@@ -119,28 +120,28 @@ past_event_links = get_link_of_past_events(2014,2014)
 for link in past_event_links:
 	event_id,fight_id = get_event_and_fight_ids(link)
 	
-	# for fight in fight_id:
-	# 	data = get_fight_json(event_id,fight)
-	# 	if data!=None:
-	# 		dump_json(data,fight_json_dump_location+str(event_id)+'_'+str(fight))
+	for fight in fight_id:
+		data = get_fight_json(event_id,fight)
+		if data!=None:
+			dump_json(data,fight_json_dump_location+str(event_id)+'_'+str(fight))
 
 	get_fight_winner(event_id)
 
 	get_win_method(event_id)
 
-	dump_json(results_record,"results_record")
+	dump_json(results_record,"data/results_record")
 
-with open('fights_failed_to_fetch.txt', 'w') as f:
+with open('failed_history/fights_failed_to_fetch.txt', 'w') as f:
     for item in fights_failed_to_fetch:
         f.write("%s\n" % item)
 
 
-with open('winners_failed_to_fetch.txt', 'w') as f:
+with open('failed_history/winners_failed_to_fetch.txt', 'w') as f:
     for item in winners_failed_to_fetch:
         f.write("%s\n" % item)
 
 
-with open('methods_failed_to_fetch.txt', 'w') as f:
+with open('failed_history/methods_failed_to_fetch.txt', 'w') as f:
     for item in methods_failed_to_fetch:
         f.write("%s\n" % item)
 
