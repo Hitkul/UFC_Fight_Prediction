@@ -21,13 +21,21 @@ def get_fighters_name_from_fight_json(data):
     try:
         return (data["FMLiveFeed"]["Fighters"]["Blue"]["Name"],data["FMLiveFeed"]["Fighters"]["Red"]["Name"])
     except KeyError: 
-        return "error"
+        fighter_details_block = data["FMLiveFeed"]["Fight"]["Fighters"]
+        if fighter_details_block[0]["Color"] == "Blue":
+            return (fighter_details_block[0]["Name"],fighter_details_block[1]["Name"])
+        else:
+            return (fighter_details_block[1]["Name"],fighter_details_block[0]["Name"])
 
 def get_fighters_id_from_fight_json(data):
     try:
         return (data["FMLiveFeed"]["Fighters"]["Blue"]["FighterID"],data["FMLiveFeed"]["Fighters"]["Red"]["FighterID"])
     except KeyError: 
-        return "error"
+        fighter_details_block = data["FMLiveFeed"]["Fight"]["Fighters"]
+        if fighter_details_block[0]["Color"] == "Blue":
+            return (fighter_details_block[0]["Name"],fighter_details_block[1]["FighterID"])
+        else:
+            return (fighter_details_block[1]["Name"],fighter_details_block[0]["FighterID"])
 
 def add_time_stamps(time1,time2):
     if time1 == "":
@@ -138,3 +146,5 @@ result_of_fights = get_all_results()
 
 for file_name in all_fights_json_names:
     master_loop(file_name)
+
+print(files_with_different_template[:5])
