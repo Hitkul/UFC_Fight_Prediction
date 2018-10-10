@@ -68,7 +68,7 @@ def update_profile(data,id,i,winner_id):
     global fighters_profiles
     round_data_fight = data["FMLiveFeed"]["RoundStats"]
     round_data_fighter = fighters_profiles[id]["Fighter_stats"]
-    # print winner_id
+    # print(winner_id)
     if winner_id == "00000":
         fighters_profiles[id]["Record"].append(4)
     elif winner_id == "11111":
@@ -132,7 +132,7 @@ def master_loop(name_of_file):
                 fighters_profiles[fighter]["Fighter"]["Name"] = fighters_names[index]
             with open('data/time_bound_profiles/'+name_of_file[:-5]+'_'+fighter+'.json', 'w') as outfile:
                 json.dump(fighters_profiles[fighter], outfile,sort_keys=True, indent=4)
-            update_profile(data,fighter,index,winner_id)
+            update_profile(data,fighter,index,winner_id[0])
                 
 
 
