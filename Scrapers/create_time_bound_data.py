@@ -147,5 +147,7 @@ result_of_fights = get_all_results()
 
 for file_name in all_fights_json_names:
     master_loop(file_name)
-print(len(files_with_different_template))
-print(files_with_different_template[:5])
+
+with open('failed_history/files_with_different_template.txt', 'w') as f:
+    for item in files_with_different_template:
+        f.write("%s\n" % str(item))
