@@ -21,7 +21,7 @@ def get_fighters_name_from_fight_json(data):
     try:
         return (data["FMLiveFeed"]["Fighters"]["Blue"]["Name"],data["FMLiveFeed"]["Fighters"]["Red"]["Name"])
     except KeyError: 
-        fighter_details_block = data["FMLiveFeed"]["Fight"]["Fighters"]
+        fighter_details_block = data["FMLiveFeed"]["FightCard"]["Fight"][0]["Fighters"]
         if fighter_details_block[0]["Color"] == "Blue":
             return (fighter_details_block[0]["Name"],fighter_details_block[1]["Name"])
         else:
@@ -31,7 +31,7 @@ def get_fighters_id_from_fight_json(data):
     try:
         return (data["FMLiveFeed"]["Fighters"]["Blue"]["FighterID"],data["FMLiveFeed"]["Fighters"]["Red"]["FighterID"])
     except KeyError: 
-        fighter_details_block = data["FMLiveFeed"]["Fight"]["Fighters"]
+        fighter_details_block = data["FMLiveFeed"]["FightCard"]["Fight"][0]["Fighters"]
         if fighter_details_block[0]["Color"] == "Blue":
             return (fighter_details_block[0]["Name"],fighter_details_block[1]["FighterID"])
         else:
@@ -119,10 +119,6 @@ def master_loop(name_of_file):
         data = json.load(fight_data)
         fighters_names = get_fighters_name_from_fight_json(data) #(Blue,Red)
         fighters_id = get_fighters_id_from_fight_json(data)
-        if fighters_id == "error":
-            files_with_different_template.append(name_of_file)
-            return None
-        #check if fighter profile available before
         for index,fighter in enumerate(fighters_id):
             if fighter not in fighters_profiles.keys():
                 foo = get_fighter_profile_template()
