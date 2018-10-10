@@ -6,10 +6,8 @@ from os.path import isfile, join
 
 
 
-
-
 def get_fighter_profile_template():
-    with open('fighter_profile.json') as data_file:
+    with open('data/fighter_profile_template.json') as data_file:
         return json.load(data_file)
 
 def get_all_results():
@@ -117,15 +115,15 @@ def master_loop(name_of_file):
             files_with_different_template.append(name_of_file)
             return None
         #check if fighter profile available before
-        for i in range(0,2):
-            if fighters_id[i] not in fighters_profiles:
+        for index,fighter in enumerate(fighters_id):
+            if fighter not in fighters_profiles.keys():
                 foo = get_fighter_profile_template()
-                fighters_profiles[fighters_id[i]] = foo
-                fighters_profiles[fighters_id[i]]["Fighter"]["FighterID"] = fighters_id[i]
-                fighters_profiles[fighters_id[i]]["Fighter"]["Name"] = fighters_names[i]
-            with open('profile_json/'+name_of_file[:-5]+'_'+fighters_id[i]+'.json', 'w') as outfile:
-                json.dump(fighters_profiles[fighters_id[i]], outfile,sort_keys=True, indent=4)
-            update_profile(data,fighters_id[i],i,winner_id)
+                fighters_profiles[fighter] = foo
+                fighters_profiles[fighter]["Fighter"]["FighterID"] = fighter
+                fighters_profiles[fighter]["Fighter"]["Name"] = fighters_names[index]
+            with open('data/time_bound_profiles/'+name_of_file[:-5]+'_'+fighter+'.json', 'w') as outfile:
+                json.dump(fighters_profiles[fighter], outfile,sort_keys=True, indent=4)
+            # update_profile(data,fighters_id[i],i,winner_id)
                 
 
 
