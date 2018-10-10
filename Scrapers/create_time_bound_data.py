@@ -106,25 +106,26 @@ def update_profile(data,id,i,winner_id):
 def master_loop(name_of_file):
     global result_of_fights
     global fighters_profiles
+    global files_with_different_template
     winner_id = result_of_fights[name_of_file[:-5]]
-    print(winner_id)
-    # with open('json/'+name_of_file) as data_file:    
-    #     data = json.load(data_file)
-    #     fighters_names = get_fighters_name_from_fight_json(data) #(Blue,Red)
-    #     fighters_id = get_fighters_id_from_fight_json(data)
-    #     if fighters_id == "error":
-    #         files_with_different_template.append(name_of_file)
-    #         return 0
-    #     #check if fighter profile available before
-    #     for i in range(0,2):
-    #         if fighters_id[i] not in fighters_profiles:
-    #             foo = get_fighter_profile_template()
-    #             fighters_profiles[fighters_id[i]] = foo
-    #             fighters_profiles[fighters_id[i]]["Fighter"]["FighterID"] = fighters_id[i]
-    #             fighters_profiles[fighters_id[i]]["Fighter"]["Name"] = fighters_names[i]
-    #         with open('profile_json/'+name_of_file[:-5]+'_'+fighters_id[i]+'.json', 'w') as outfile:
-    #             json.dump(fighters_profiles[fighters_id[i]], outfile,sort_keys=True, indent=4)
-    #         update_profile(data,fighters_id[i],i,winner_id)
+    # print(name_of_file)
+    with open('data/fight_json/'+name_of_file) as fight_data:    
+        data = json.load(fight_data)
+        fighters_names = get_fighters_name_from_fight_json(data) #(Blue,Red)
+        fighters_id = get_fighters_id_from_fight_json(data)
+        if fighters_id == "error":
+            files_with_different_template.append(name_of_file)
+            return None
+        #check if fighter profile available before
+        for i in range(0,2):
+            if fighters_id[i] not in fighters_profiles:
+                foo = get_fighter_profile_template()
+                fighters_profiles[fighters_id[i]] = foo
+                fighters_profiles[fighters_id[i]]["Fighter"]["FighterID"] = fighters_id[i]
+                fighters_profiles[fighters_id[i]]["Fighter"]["Name"] = fighters_names[i]
+            with open('profile_json/'+name_of_file[:-5]+'_'+fighters_id[i]+'.json', 'w') as outfile:
+                json.dump(fighters_profiles[fighters_id[i]], outfile,sort_keys=True, indent=4)
+            update_profile(data,fighters_id[i],i,winner_id)
                 
 
 
