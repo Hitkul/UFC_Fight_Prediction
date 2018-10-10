@@ -5,8 +5,7 @@ from os import listdir
 from os.path import isfile, join
 
 
-fighters_profiles = {}
-files_with_different_template = []
+
 
 
 def get_fighter_profile_template():
@@ -14,11 +13,11 @@ def get_fighter_profile_template():
         return json.load(data_file)
 
 def get_all_results():
-    with open('winners.json') as data_file:    
+    with open('data/results_record.json') as data_file:    
         return json.load(data_file)
 
-def get_all_json():
-    return [f for f in listdir("json/") if isfile(join("json/", f))]
+def get_name_of_all_fight_json():
+    return [f for f in listdir("data/fight_json/") if isfile(join("data/fight_json/", f))]
 
 def get_fighters_name_from_fight_json(data):
     try:
@@ -70,12 +69,12 @@ def update_profile(data,id,i,winner_id):
         fighters_profiles[id]["Record"].append(1)
     else:
         fighters_profiles[id]["Record"].append(0)
-    for key in round_data_fight.keys():
+    for key in list(round_data_fight.keys()):
         if i == 0:
-            for style in round_data_fight[key]["Blue"].keys():
+            for style in list(round_data_fight[key]["Blue"].keys()):
                 if style == "Grappling" or style == "Strikes":
-                    for move in round_data_fight[key]["Blue"][style].keys():
-                        for value in round_data_fight[key]["Blue"][style][move].keys():
+                    for move in list(round_data_fight[key]["Blue"][style].keys()):
+                        for value in list(round_data_fight[key]["Blue"][style][move].keys()):
                             value_in_fight_data = round_data_fight[key]["Blue"][style][move][value]
                             value_in_fight_data = get_formated_int_value(value_in_fight_data)
                             value_in_fighter_profile = round_data_fighter[key][style][move][value]
@@ -83,15 +82,15 @@ def update_profile(data,id,i,winner_id):
                             value_in_fighter_profile+=value_in_fight_data
                             round_data_fighter[key][style][move][value] = str(value_in_fighter_profile)
                 elif style == "TIP":
-                    for move in round_data_fight[key]["Blue"][style].keys():
+                    for move in list(round_data_fight[key]["Blue"][style].keys()):
                         value_in_fight_data = round_data_fight[key]["Blue"][style][move]
                         value_in_fighter_profile = round_data_fighter[key][style][move]
                         round_data_fighter[key][style][move] = add_time_stamps(value_in_fight_data,value_in_fighter_profile)
         else:
-            for style in round_data_fight[key]["Red"].keys():
+            for style in list(round_data_fight[key]["Red"].keys()):
                 if style == "Grappling" or style == "Strikes":
-                    for move in round_data_fight[key]["Red"][style].keys():
-                        for value in round_data_fight[key]["Red"][style][move].keys():
+                    for move in list(round_data_fight[key]["Red"][style].keys()):
+                        for value in list(round_data_fight[key]["Red"][style][move].keys()):
                             value_in_fight_data = round_data_fight[key]["Red"][style][move][value]
                             value_in_fight_data = get_formated_int_value(value_in_fight_data)
                             value_in_fighter_profile = round_data_fighter[key][style][move][value]
@@ -99,46 +98,44 @@ def update_profile(data,id,i,winner_id):
                             value_in_fighter_profile+=value_in_fight_data
                             round_data_fighter[key][style][move][value] = str(value_in_fighter_profile)
                 elif style == "TIP":
-                    for move in round_data_fight[key]["Red"][style].keys():
+                    for move in list(round_data_fight[key]["Red"][style].keys()):
                         value_in_fight_data = round_data_fight[key]["Red"][style][move]
                         value_in_fighter_profile = round_data_fighter[key][style][move]
                         round_data_fighter[key][style][move] = add_time_stamps(value_in_fight_data,value_in_fighter_profile)
 
-def master_loop(name_of_file,result_of_fights):
-    # print name_of_file
+def master_loop(name_of_file):
+    global result_of_fights
     global fighters_profiles
     winner_id = result_of_fights[name_of_file[:-5]]
-    # print winner_id
-    with open('json/'+name_of_file) as data_file:    
-        data = json.load(data_file)
-        fighters_names = get_fighters_name_from_fight_json(data) #(Blue,Red)
-        fighters_id = get_fighters_id_from_fight_json(data)
-        if fighters_id == "error":
-            files_with_different_template.append(name_of_file)
-            return 0
-        #check if fighter profile available before
-        for i in xrange(0,2):
-            if fighters_id[i] not in fighters_profiles:
-                foo = get_fighter_profile_template()
-                fighters_profiles[fighters_id[i]] = foo
-                fighters_profiles[fighters_id[i]]["Fighter"]["FighterID"] = fighters_id[i]
-                fighters_profiles[fighters_id[i]]["Fighter"]["Name"] = fighters_names[i]
-            with open('profile_json/'+name_of_file[:-5]+'_'+fighters_id[i]+'.json', 'w') as outfile:
-                json.dump(fighters_profiles[fighters_id[i]], outfile,sort_keys=True, indent=4)
-            update_profile(data,fighters_id[i],i,winner_id)
+    print(winner_id)
+    # with open('json/'+name_of_file) as data_file:    
+    #     data = json.load(data_file)
+    #     fighters_names = get_fighters_name_from_fight_json(data) #(Blue,Red)
+    #     fighters_id = get_fighters_id_from_fight_json(data)
+    #     if fighters_id == "error":
+    #         files_with_different_template.append(name_of_file)
+    #         return 0
+    #     #check if fighter profile available before
+    #     for i in range(0,2):
+    #         if fighters_id[i] not in fighters_profiles:
+    #             foo = get_fighter_profile_template()
+    #             fighters_profiles[fighters_id[i]] = foo
+    #             fighters_profiles[fighters_id[i]]["Fighter"]["FighterID"] = fighters_id[i]
+    #             fighters_profiles[fighters_id[i]]["Fighter"]["Name"] = fighters_names[i]
+    #         with open('profile_json/'+name_of_file[:-5]+'_'+fighters_id[i]+'.json', 'w') as outfile:
+    #             json.dump(fighters_profiles[fighters_id[i]], outfile,sort_keys=True, indent=4)
+    #         update_profile(data,fighters_id[i],i,winner_id)
                 
 
 
-def main():
-    all_fights_json_names = get_all_json()
-    all_fights_json_names.sort()
-    result_of_fights = get_all_results()
-    for file_name in all_fights_json_names:
-        master_loop(file_name,result_of_fights)
-
-    # for f in foo:
-    #     print f 
-    # print len(foo)
 
 
-main()
+fighters_profiles = {}
+files_with_different_template = []
+
+all_fights_json_names = get_name_of_all_fight_json()
+all_fights_json_names.sort()
+result_of_fights = get_all_results()
+
+for file_name in all_fights_json_names:
+    master_loop(file_name)
