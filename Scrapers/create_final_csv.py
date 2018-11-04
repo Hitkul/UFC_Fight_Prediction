@@ -51,7 +51,6 @@ def create_dict(indict):
 
 
 def readfile(inputstr, header,flag=False):
-  print("in readFile")
   try:
     with open(header + inputstr) as datafile:
       herp = json.load(datafile)
@@ -66,13 +65,13 @@ def readfile(inputstr, header,flag=False):
     return
 
 def EditDict(indict):
-  print("in EditDict")
   bluefighterstring = str(indict['Event_ID'])+str('_')+str(indict['Fight_ID'])+str('_')+ str(indict['B_ID'])+'.json'
   redfighterstring = str(indict['Event_ID'])+str('_')+str(indict['Fight_ID'])+str('_')+ str(indict['R_ID'])+'.json'
   blue_fighter_dict = readfile(bluefighterstring,'data/time_bound_profiles/')
   
   
   blue_fighter_statstring = str(indict['B_Name'])+'.json'
+  blue_fighter_statstring = blue_fighter_statstring.replace(" ","-").lower()
   blue_fighter_statdict = readfile(blue_fighter_statstring,'data/profile_json/')
   if(blue_fighter_statdict):
     blue_fighter_dict['B_Weight'] = blue_fighter_statdict['weight_kg']
@@ -82,6 +81,7 @@ def EditDict(indict):
     blue_fighter_dict['B_Age'] = blue_fighter_statdict['age']
   
   red_fighter_statstring = str(indict['R_Name'])+'.json'
+  red_fighter_statstring = red_fighter_statstring.replace(" ","-").lower()
   red_fighter_dict = readfile(redfighterstring,'data/time_bound_profiles/')
   red_fighter_statdict = readfile(red_fighter_statstring,'data/profile_json/')
   if(red_fighter_statdict):
@@ -143,5 +143,9 @@ flatteneddicts = list(map(flatten,updatedDicts))
 df = pd.DataFrame.from_records(flatteneddicts)
 df.to_csv('data/finalout.csv',index=False, encoding='utf-8')
 
-for x in errors:
-  print(x)
+
+
+with open('failed_history/fighters_name.txt', 'w') as f:
+    for x in errors:
+        f.write("%s\n" % x)
+print(len(errors))
