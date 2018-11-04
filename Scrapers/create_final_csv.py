@@ -4,7 +4,7 @@ import pandas as pd
 import pprint
 import collections
 
-listoffiles = os.listdir("./Data/Fights")
+listoffiles = os.listdir("data/fight_json")
 errors = set()
 
 def count_prev(foo):
@@ -51,7 +51,7 @@ def create_dict(indict):
 
 
 def readfile(inputstr, header,flag=False):
-  print "in readFile"
+  print("in readFile")
   try:
     with open(header + inputstr) as datafile:
       herp = json.load(datafile)
@@ -66,14 +66,14 @@ def readfile(inputstr, header,flag=False):
     return
 
 def EditDict(indict):
-  print "in EditDict"
+  print("in EditDict")
   bluefighterstring = str(indict['Event_ID'])+str('_')+str(indict['Fight_ID'])+str('_')+ str(indict['B_ID'])+'.json'
   redfighterstring = str(indict['Event_ID'])+str('_')+str(indict['Fight_ID'])+str('_')+ str(indict['R_ID'])+'.json'
-  blue_fighter_dict = readfile(bluefighterstring,'./Data/Fights_Fighter/')
+  blue_fighter_dict = readfile(bluefighterstring,'data/time_bound_profiles/')
   
   
   blue_fighter_statstring = str(indict['B_Name'])+'.json'
-  blue_fighter_statdict = readfile(blue_fighter_statstring,'./Data/fighters/')
+  blue_fighter_statdict = readfile(blue_fighter_statstring,'data/profile_json/')
   if(blue_fighter_statdict):
     blue_fighter_dict['B_Weight'] = blue_fighter_statdict['weight_kg']
     blue_fighter_dict['B_Height'] = blue_fighter_statdict['height_cm']
@@ -82,8 +82,8 @@ def EditDict(indict):
     blue_fighter_dict['B_Age'] = blue_fighter_statdict['age']
   
   red_fighter_statstring = str(indict['R_Name'])+'.json'
-  red_fighter_dict = readfile(redfighterstring,'./Data/Fights_Fighter/')
-  red_fighter_statdict = readfile(red_fighter_statstring,'./Data/fighters/')
+  red_fighter_dict = readfile(redfighterstring,'data/time_bound_profiles/')
+  red_fighter_statdict = readfile(red_fighter_statstring,'data/profile_json/')
   if(red_fighter_statdict):
     red_fighter_dict['R_Weight'] = red_fighter_statdict['weight_kg']
     red_fighter_dict['R_Height'] = red_fighter_statdict['height_cm']
@@ -129,18 +129,19 @@ def EditDict(indict):
 
 pp = pprint.PrettyPrinter(indent=2)
 
-jsons = [readfile(x,"./Data/Fights/") for x in listoffiles]
+jsons = [readfile(x,"data/fight_json/") for x in listoffiles]
 
 FighterAndEventDic = map(create_dict, jsons)
 # At this point I have a list of dict with Event ID, Fight ID 
 # and both red and blue fighter IDs
 # Now iterate through this dict and edit the members. 
 
-winners = readfile("result.json","./Data/")
+winners = readfile("results_record.json","data/")
 updatedDicts = map(EditDict,FighterAndEventDic)
-flatteneddicts = map(flatten,updatedDicts)
+flatteneddicts = list(map(flatten,updatedDicts))
 # pp.pprint(flatteneddicts[-2])
 df = pd.DataFrame.from_records(flatteneddicts)
-df.to_csv('./Data/finalout.csv',index=False, encoding='utf-8')
+df.to_csv('data/finalout.csv',index=False, encoding='utf-8')
+
 for x in errors:
-  print x
+  print(x)
