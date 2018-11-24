@@ -146,6 +146,7 @@ all_fights_json_names.sort()
 result_of_fights = get_all_results()
 
 for file_name in all_fights_json_names:
+    print(file_name)
     master_loop(file_name)
 
 with open('failed_history/files_with_different_template.txt', 'w') as f:
